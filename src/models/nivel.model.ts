@@ -34,7 +34,7 @@ NivelModel.init(
   },
   {
     sequelize,
-    tableName: "infante",
+    tableName: "nivel",
   }
 );
 
@@ -44,10 +44,5 @@ NivelModel.hasMany(LeccionModel,
     sourceKey:"idNivel",
   }
 );
-NivelModel.hasMany(InfanteModel,
-  {
-    foreignKey:"idNivel",
-    sourceKey:"idNivel",
-  }
-);
+
 

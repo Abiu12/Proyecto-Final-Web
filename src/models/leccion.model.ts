@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../database/database.config";
-import LeccionType from "../types/Leccion.type";
+import LeccionType from "../types/leccion.type";
 import { ActividadModel } from "./actividad.model";
 import { InfanteModel } from "./infante.model";
 import { NivelModel } from "./nivel.model";
@@ -27,7 +27,7 @@ LeccionModel.init(
   },
   {
     sequelize,
-    tableName: "nivel",
+    tableName: "leccion",
   }
 );
 

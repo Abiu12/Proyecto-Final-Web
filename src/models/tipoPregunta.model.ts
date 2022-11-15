@@ -24,7 +24,7 @@ TipoPreguntaModel.init(
   },
   {
     sequelize,
-    tableName: "pregunta",
+    tableName: "tipoPregunta",
   }
 );
 

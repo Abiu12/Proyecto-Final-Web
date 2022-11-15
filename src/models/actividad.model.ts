@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../database/database.config";
-import ActividadType from "../types/Actividad.type";
+import ActividadType from "../types/actividad.type";
 import { PreguntaModel } from "./pregunta.model";
 
 
