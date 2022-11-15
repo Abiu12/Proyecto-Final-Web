@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Home</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+
+<body id="page-top">
+    <div class="container">
+        <!-- Separa los datos -->
+
+        <h1>Actualizar cliente</h1>
+        <br>
+        <br>
+
+        <!-- La accion al picar el boton es insertar -->
+        <form action="update.php?idCliente=<?php echo $id ?> " method="POST">
+            <br>
+            <!-- El name debe ser tal cual esta en la bd, es la identificacion -->
+            <h2>DATOS GENERALES</h2>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h3>Nombre</h3>
+                </div>
+                <div class="col">
+                    <h3>Apellido paterno</h3>
+                </div>
+                <div class="col">
+                    <h3>Apellido Materno</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control mb-3" name="nombre" value="<%=nombre%>">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mb-3" name="apellidoPaterno" value="<%=apellidoPaterno%>">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mb-3" name="apellidoMaterno" value="<%=apellidoMaterno%>">
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <h2>DATOS DE CONTACTO</h2>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h3>Telefono</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control mb-3" name="telefono" value="<%=telefono%>">
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary" type="submit">Actualizar empleado</button>
+                    <!-- <input type="submit" class="btn btn-primary"> -->
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

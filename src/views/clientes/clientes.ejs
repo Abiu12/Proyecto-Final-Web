@@ -1,0 +1,124 @@
+<%- include("../comunes/components/header-empleado-component") -%>
+    <div class="container">
+        <div class="row g-4">
+<!-- 
+            <div class="col-auto">
+                <label for="num_registros" class="col-form-label">Mostrar: </label>
+            </div>
+
+            <div class="col-auto">
+                <select name="num_registros" id="num_registros" class="form-select">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+            </div>
+
+            <div class="col-auto">
+                <label for="num_registros" class="col-form-label">Registros </label>
+            </div>
+
+            <div class="col-4"></div> -->
+<!-- 
+            <div class="col-auto">
+                <label for="campo" class="col-form-label">Buscar: </label>
+            </div>
+
+            <div class="col-auto">
+                <input type="text" name="campo" id="campo" class="form-control">
+            </div> -->
+
+
+
+        </div>
+    </div>
+
+    <div class="col-3">
+
+        <a href="/empleado/clientes/view/agregar_cliente"><input class="btn btn-primary" type="button" value="Agregar cliente"></a>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Tabla donde estan los clientes -->
+    <div class="col-md-12">
+        <table class="table">
+            <thead class="table-success table-striped">
+                <tr>
+                    <th>Id cliente</th>
+                    <th>Nombre</th>
+                    <th>Apellido paterno</th>
+                    <th>Apellido materno</th>
+                    <th>Telefono</th>
+                    <th>Calle</th>
+                    <th>No. Casa Interior</th>
+                    <th>No. Casa Exterior</th>
+                    <th>Colonia</th>
+                    <th>Acciones</th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(var i=0; i<records.length ;i++){ %>
+                    <tr>
+                        <td>
+                            <%=records[i]["idCliente"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["nombre"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["apellidoPaterno"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["apellidoMaterno"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["telefono"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["calle"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["noCasaInt"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["noCasaExt"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["colonia"] %>
+                        </td>
+
+                        <td>
+                            <a class="btn btn-primary" href="/empleado/clientes/view/modificar_cliente/<%=records[i]["idCliente"]%>"  >Editar</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="/empleado/clientes/delete/<%=records[i]["idCliente"]%>">Eliminar</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="/empleado/electrodomesticos/view/<%=records[i]["idCliente"]%>">Electro</a>
+                        </td>
+                    </tr>
+                    <% } %>
+
+
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-6">
+                <label id="lbl-total"></label>
+            </div>
+            <div class="col-6" id="nav-paginacion">
+                <label id="lbl-total"></label>
+            </div>
+
+        </div>
+
+    </div>
+
+    <%- include("../comunes/components/footer-component") -%>

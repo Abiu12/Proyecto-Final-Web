@@ -1,0 +1,63 @@
+<%- include("../comunes/components/header-empleado-component") -%>                
+                <!-- Begin Page Content -->
+                <h1>Empleados</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <a href="agregar_empleado"><input class="btn btn-primary" type="button"
+                                    value="Agregar empleado"></a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <!-- Tabla clientes -->
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead class="table-success table-striped">
+                            <th>Id empleado</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Teléfono</th>
+                            <th></th>
+                            <th></th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% for(var i=0; i<records.length ;i++){ %>
+                                <tr>
+                                    <td>
+                                        <%=records[i]["idEmpleado"] %>
+                                    </td>
+                                    <td>
+                                        <%=records[i]["nombre"] %>
+                                    </td>
+                                    <td>
+                                        <%=records[i]["apellidoPaterno"] %>
+                                    </td>
+                                    <td>
+                                        <%=records[i]["apellidoMaterno"] %>
+                                    </td>
+                                    <td>
+                                        <%=records[i]["telefono"] %>
+                                    </td>
+                                    <td>
+                                        <a class="waves-effect waves-effect-ligth btn"
+                                            href="/administrador/view/modificar_empleado/<%=records[i][" idEmpleado"]%>
+                                            ">Editar</a>
+                                    </td>
+                                    <td>
+                                        <a class="waves-effect waves-effect-ligth btn"
+                                            href="/administrador/delete/<%=records[i][" idEmpleado"]%>">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </div> <!-- End table client -->
+                
+            </div>  <!-- End of Main Content-->
+<%- include("../comunes/components/footer-component") -%> 

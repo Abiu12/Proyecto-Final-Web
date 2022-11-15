@@ -1,0 +1,8 @@
+VISTA DE EMPLEADOS
+http://localhost:4000/administrador/view/empleados 
+ELIMINAR
+http://localhost:4000/administrador/delete/idEmpleado
+
+VISTA DE CLIENTES
+http://localhost:4000/empleado/view/clientes 
+
