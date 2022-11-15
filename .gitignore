@@ -1,6 +1,6 @@
 /node_modules
-/dist
+# /dist
 *.pdf
 *.zip
-.env
-package-lock.json
+# .env
+# package-lock.json
