@@ -9,6 +9,7 @@ import empleadosRouter from "./routes/empleados.route";
 import logginRouter from "./routes/loggin.router";
 import clientesRouter from "./routes/clientes.route";
 import electrodomesticosRouter from "./routes/electrodomesticos.route";
+import pendientesRouter from "./routes/pendientes.route";
 const app: Application = express();
 
 
@@ -31,5 +32,6 @@ app.use("/view/loggin",logginRouter);
 app.use("/administrador",empleadosRouter);
 app.use("/empleado/clientes",clientesRouter);
 app.use("/empleado/electrodomesticos",electrodomesticosRouter);
+app.use("/tecnico/pendientes",pendientesRouter);
 
 export default app;

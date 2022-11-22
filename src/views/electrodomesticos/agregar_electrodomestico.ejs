@@ -1,42 +1,41 @@
 <%- include("../comunes/components/header-empleado-component") -%>
 <div class="container">
-    <h1>Agregar electrodomestico</h1>
+    <h1>Agregar electrodoméstico</h1>
     <br>
     <br>
-    <!-- Cliente -->
+
+    <div class="row">
+        <div class="col-10">
+            <h3>Cliente: <%=recordsCliente[0]["nombre"] %> <%=recordsCliente[0]["apellidoPaterno"] %> <%=recordsCliente[0]["apellidoMaterno"] %> </h3>
+        </div>
+        <div class="col-2">
+            <h6>* Campos obligatorios</h6>
+        </div>
+    </div>
    
-    <h1>Cliente: <%=recordsCliente[0]["nombre"] %> <%=recordsCliente[0]["apellidoPaterno"] %> <%=recordsCliente[0]["apellidoMaterno"] %> </h1>
     <br>
     <br>
     <!-- La accion al picar el boton es insertar -->
 
     <form action="/empleado/electrodomesticos/create/<%=recordsCliente[0]["idCliente"] %>" method="POST">
-        <!-- El name debe ser tal cual esta en la bd, es la identificacion -->
-        <h2>DATOS DEL ELECTRODOMÉSTICO</h2>
+        <h2 class="title-black">Datos del electrodoméstico</h2>
         <br>
         <div class="row">
             <div class="col">
-                <h3>Codigo de seguimiento*</h3>
+                <h4>Nombre*</h4>
             </div>
             <div class="col">
-                <h3>Nombre*</h3>
+                <h4>Modelo*</h4>
             </div>
             <div class="col">
-                <h3>Modelo*</h3>
+                <h4>Marca*</h4>
             </div>
             <div class="col">
-                <h3>Marca*</h3>
-            </div>
-            <div class="col">
-                <h3>Fecha entrada*</h3>
+                <h4>Fecha entrada*</h4>
             </div>
         </div>
 
         <div class="row">
-            <div class="col">
-                <input type="text" onkeypress="" class="form-control mb-3" name="codigo_seguimiento"
-                    required>
-            </div>
             <div class="col">
                 <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="nombre"
                     required>
@@ -49,7 +48,7 @@
                     required>
             </div>
             <div class="col">
-                <input type="text" class="form-control mb-3" name="fecha_entrada" placeholder="" required>
+                <input type="date" class="form-control mb-3" name="fecha_entrada" placeholder="" required>
             </div>
         </div>
         <br>
@@ -58,24 +57,23 @@
         <br>
         <div class="row">
             <div class="col">
-                <h3>Fecha de salida*</h3>
+                <h4>Fecha de salida*</h4>
             </div>
             <div class="col">
-                <h3>Estado*</h3>
+                <h4>Estado*</h4>
             </div>
             <div class="col">
-                <h3>Estado de garantia*</h3>
+                <h4>Estado de garantia*</h4>
             </div>
             <div class="col">
-                <h3>Observaciones*</h3>
+                <h4>Observaciones*</h4>
             </div>
-
         </div>
 
         <div class="row">
 
             <div class="col">
-                <input type="text" class="form-control mb-3" name="fecha_salida" placeholder="">
+                <input type="date" class="form-control mb-3" name="fecha_salida" placeholder="">
             </div>
             <div class="col">
                 <select name="estado" id="estado" class="form-control mb-3">
@@ -83,7 +81,7 @@
                     <option value="En reparación">En reparación</option>
                     <option value="Terminado">Terminado</option>
                     <option value="Entregado">Entregado</option>
-                    <option value="No se trabajo">No se trabajo</option>
+                    <option value="No se trabajo">No se trabajó</option>
                 </select>
             </div>
             <div class="col">
@@ -99,14 +97,13 @@
         </div>
         <br>
         <br>
+
         <div class="row">
+            <div class="col-9"></div>
             <div class="col">
-                <button class="btn btn-primary" type="submit">Registrar electrodoméstico</button>
-                <!-- <input type="submit" class="btn btn-primary"> -->
+                <button class="btn btn-secondary" type="submit">Registrar electrodoméstico</button>
             </div>
-
         </div>
-
     </form>
 </div>
   <%- include("../comunes/components/footer-component") -%>

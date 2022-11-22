@@ -1,0 +1,108 @@
+<%- include("../comunes/components/header-tecnico-component") -%>
+<div class="container-fluid">
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-xl-10 col-lg-7">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class="m-0 font-weight-bold text-dark">Reparaciones pendientes</h5>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body ">
+                    <!-- Ciclo para las tarjetas -->
+                    <% for(var i=0; i<recordsElectrodomestico.length;i++){ %> 
+                    <div class="card mt-4 border-dark shadow-card">
+                        <div class="card-header">
+                            <h4 class="card-title mt-2 title-card ">
+                                Cliente: <%=recordsCliente[i]["nombre"] %> <%=recordsCliente[i]["apellidoPaterno"]%> <%=recordsCliente[i]["apellidoMaterno"]%>  </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h2><%=recordsElectrodomestico[i]["nombre"]%></h2>
+                                    <h4>Marca: <%=recordsElectrodomestico[i]["marca"]%></h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p ALIGN=right>
+                                                Fecha entrada:
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p ALIGN=left><%=recordsElectrodomestico[i]["fecha_entrada"]%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p ALIGN=right>
+                                                Fecha salida:
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p ALIGN=left><%=recordsElectrodomestico[i]["fecha_salida"]%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p ALIGN=right>
+                                                Observaciones:
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p ALIGN=left><%=recordsElectrodomestico[i]["observaciones"]%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="" ALIGN=right>
+                                                Estado:
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="status-text" ALIGN=left><%=recordsElectrodomestico[i]["estado"]%></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <br>
+                                    <br>
+                                    
+                                    <h7>Acción a realizar</h7>
+                                    <br>
+                                    
+                                        <% if(recordsElectrodomestico[i]["estado"]=="En revisión"){ %> 
+                                        <form action="/tecnico/pendientes/status/<%=recordsElectrodomestico[i]["idCliente"]%>/<%=recordsElectrodomestico[i]["idElectrodomestico"]%>/En reparación" method="post">
+                                            <button class="btn btn-secondary" type="submit">En reparación</button>
+                                        </form>
+                                            <% } %>
+                                    
+                                    
+                                    
+                                        <% if(recordsElectrodomestico[i]["estado"]=="En reparación"){ %>
+                                            <form action="/tecnico/pendientes/status/<%=recordsElectrodomestico[i]["idCliente"]%>/<%=recordsElectrodomestico[i]["idElectrodomestico"]%>/Terminado" method="post">
+                                                <button class="btn btn-secondary" type="submit">Terminado</button>
+                                            </form>
+                                            <% } %> 
+                                    
+
+
+                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <% } %> 
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<%- include("../comunes/components/footer-component") -%>

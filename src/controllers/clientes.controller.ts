@@ -10,6 +10,7 @@ export async function createCliente(req: Request, res: Response) {
     message: "Registrado correctamente",
     records: records
   };
+  
   // res.status(201).render("clientes/clientes",data);
   res.redirect("/empleado/clientes/view");
 }

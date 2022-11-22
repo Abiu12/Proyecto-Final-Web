@@ -7,7 +7,12 @@ import { ClientesModel } from "../models/clientes.model";
 export async function createElectrodomestico(req: Request, res: Response) {
   console.log(req.body);
   const idCliente = Number(req.params.idCliente);
-  const { codigo_seguimiento, nombre, modelo, marca, fecha_entrada, fecha_salida, estado, garantia, observaciones } = req.body;
+  var date = new Date();
+  var fecha=String(date.getDate())+String(date.getMonth()+1)+String(date.getFullYear()).substring(2,4);
+  var hora = String(date.getHours()) + String(date.getMinutes()) + String(date.getSeconds());
+  const codigo_seguimiento = "E"+idCliente+fecha+hora;
+  // console.log(codigo_seguimiento);  
+  const {nombre, modelo, marca, fecha_entrada, fecha_salida, estado, garantia, observaciones } = req.body;
   await ElectrodomesticosModel.create({ codigo_seguimiento, nombre, modelo, marca, fecha_entrada, fecha_salida, estado, garantia, observaciones, idCliente });
   // const records = await ElectrodomesticosModel.findAll({ raw: true });
   // const recordsCliente = await ClientesModel.findAll({where: {idCliente: idCliente}, raw: true});
