@@ -4,10 +4,8 @@ import path from "path"
 import dotenv from "dotenv";
 dotenv.config();
 
-import indexRouter from "./routes/index.route";
 import empleadoRouter from "./routes/empleado.route";
 import usuarioRouter from "./routes/usuario.route";
-import logginRouter from "./routes/loggin.router";
 import clientesRouter from "./routes/clientes.route";
 import electrodomesticosRouter from "./routes/electrodomesticos.route";
 import pendientesRouter from "./routes/pendientes.route";
@@ -28,8 +26,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'./public')))
 
 //routes
-app.use("/", indexRouter);
-app.use("/view/loggin",logginRouter);
+
 app.use("/administrador/empleados",empleadoRouter);
 app.use("/administrador/usuarios",usuarioRouter);
 app.use("/empleado/clientes",clientesRouter);

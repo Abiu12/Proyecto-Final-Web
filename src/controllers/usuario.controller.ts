@@ -1,11 +1,12 @@
 import { Request, Response } from "express";
 import { EmpleadoModel } from "../models/empleado.model";
 import { UsuarioModel } from "../models/usuario.model";
-
+import {hashPassword,isValidPassword,generatePassword} from "../libraries/bycript.library";
 export async function createUsuario(req: Request, res: Response) {
   const {idEmpleado} = req.params;
   const {correo, contrasenia, estatus, rol, token} = req.body;
-  await UsuarioModel.create({idEmpleado:Number(idEmpleado),correo, contrasenia, estatus, rol, token_restauracion:token});
+  const contraseniaHash=hashPassword(contrasenia);
+  await UsuarioModel.create({idEmpleado:Number(idEmpleado),correo, contrasenia:contraseniaHash, estatus, rol, token_restauracion:token});
   res.redirect("/administrador/usuarios/view/"+idEmpleado);
 }
 export async function updateUsuario(req: Request, res: Response) { 
