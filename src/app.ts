@@ -5,7 +5,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import indexRouter from "./routes/index.route";
-import empleadosRouter from "./routes/empleados.route";
+import empleadoRouter from "./routes/empleado.route";
+import usuarioRouter from "./routes/usuario.route";
 import logginRouter from "./routes/loggin.router";
 import clientesRouter from "./routes/clientes.route";
 import electrodomesticosRouter from "./routes/electrodomesticos.route";
@@ -29,9 +30,11 @@ app.use(express.static(path.join(__dirname,'./public')))
 //routes
 app.use("/", indexRouter);
 app.use("/view/loggin",logginRouter);
-app.use("/administrador",empleadosRouter);
+app.use("/administrador/empleados",empleadoRouter);
+app.use("/administrador/usuarios",usuarioRouter);
 app.use("/empleado/clientes",clientesRouter);
 app.use("/empleado/electrodomesticos",electrodomesticosRouter);
 app.use("/tecnico/pendientes",pendientesRouter);
+
 
 export default app;

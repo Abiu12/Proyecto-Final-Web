@@ -1,10 +1,10 @@
 <%- include("../comunes/components/header-admin-component") -%>
     <div class="container">
 
-        <h1>Actualizar empleado</h1>
+        <h1>Agregar usuario</h1>
         <br>
         <br>
-        <form action="/administrador/empleados/update/<%=idEmpleado  %> " method="POST">
+        <form action="/administrador/usuarios/create/<%=recordsEmpleado["idEmpleado"]%> " method="POST">
             <div class="container">
                 <div class="row">
                     <div class="col-10">
@@ -19,68 +19,67 @@
                 <br>
                 <div class="row">
                     <div class="col">
-                        <h4>Nombre*</h4>
+                        <h4>Correo</h4>
                     </div>
                     <div class="col">
-                        <h4>Primer apellido</h4>
+                        <h4>Contraseña</h4>
                     </div>
                     <div class="col">
-                        <h4>Segundo apellido</h4>
+                        <h4>Estatus</h4>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col">
-                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="nombre"
-                        value="<%=nombre%>"    required>
+                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="correo"
+                            required>
                     </div>
                     <div class="col">
                         <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                        value="<%=primerApellido%>"    name="primerApellido">
+                            name="contrasenia">
                     </div>
                     <div class="col">
-                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                        value="<%=segundoApellido%>"    name="segundoApellido">
+                        <select name="estatus" class="form-control mb-3" id="estatus">
+                            <option value="A">Activo</option>
+                            <option value="D">Desactivo</option>
+                        </select>
                     </div>
                 </div>
                 <br>
                 <br>
                 <div class="row">
-
-                    <div class="col">
-                        <h4>Género*</h4>
+                    <div class="col-4">
+                        <h4>Rol</h4>
+                    </div>
+                    <div class="col-4">
+                        <h4>Token</h4>
                     </div>
 
                 </div>
 
                 <div class="row">
                     <div class="col-4">
-                        <select name="genero" id="genero" class="form-control mb-3">
-                            <option value="H">Hombre</option>
-                            <option value="M">Mujer</option>
+                        <select name="rol" id="rol" class="form-control mb-3">
+                            <option value="Administrador">Administrador</option>
+                            <option value="Tecnico">Técnico</option>
+                            <option value="Empleado">Empleado</option>
                         </select>
 
                     </div>
-
-
+                    <div class="col-4">
+                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
+                            name="token">
+                    </div>
                 </div>
                 <br>
                 <br>
                 <div class="row">
                     <div class="col-10"></div>
                     <div class="col">
-                        <button class="btn btn-secondary" type="submit">Actualizar empleado</button>
+                        <button class="btn btn-secondary" type="submit">Registrar usuario</button>
                     </div>
-
                 </div>
-
-
             </div>
-
-
-
         </form>
-
-
     </div>
     <%- include("../comunes/components/footer-component") -%>

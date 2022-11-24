@@ -73,6 +73,7 @@
                                     
                                     <h7>Acción a realizar</h7>
                                     <br>
+                                    <br>
                                     
                                         <% if(recordsElectrodomestico[i]["estado"]=="En revisión"){ %> 
                                         <form action="/tecnico/pendientes/status/<%=recordsElectrodomestico[i]["idCliente"]%>/<%=recordsElectrodomestico[i]["idElectrodomestico"]%>/En reparación" method="post">

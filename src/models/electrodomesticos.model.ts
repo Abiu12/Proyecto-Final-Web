@@ -11,7 +11,7 @@ ElectrodomesticosModel.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
-      autoIncrement:true /**Es incrementable */
+      autoIncrement:true 
     },
     
     codigo_seguimiento: {

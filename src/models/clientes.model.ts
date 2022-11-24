@@ -12,7 +12,7 @@ ClientesModel.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
-      autoIncrement:true /**Es incrementable */
+      autoIncrement:true 
     },
     nombre: {
       type: DataTypes.STRING(25),
@@ -52,7 +52,6 @@ ClientesModel.init(
     tableName: "clientes",
   }
 );
-// Relacion con la tabla de electrodomesticos
 ClientesModel.hasMany(ElectrodomesticosModel,
   {
     foreignKey:"idCliente",
