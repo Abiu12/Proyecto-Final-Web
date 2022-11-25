@@ -9,8 +9,7 @@ export async function readProducto(req: Request, res: Response) {
   const {query:where} = req
   const productos = await ProductoModel.findAll({
     attributes:["idCliente","nombre","primerApellido","segundoApellido","telefono","calle","noCasaInt","noCasaExt","colonia","municipio"],
-    raw: true,
-    where
+    raw: true
   });
   res.status(200).json(productos);
 }
@@ -27,9 +26,9 @@ export async function createProducto(req: Request, res: Response) {
 }
 
 export async function updateProducto(req: Request, res: Response) {
-  const {idProducto} = req.params;
+  const {idCliente} = req.params;
   const {body} = req;
-  const entity = await ProductoModel.findByPk(idProducto);
+  const entity = await ProductoModel.findByPk(idCliente);
   await entity?.update(body);
   res.status(201).json(entity?.toJSON());
 }

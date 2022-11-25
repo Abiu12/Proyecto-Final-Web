@@ -7,7 +7,7 @@ const productoRouter: Router = Router();
 productoRouter.get("/view", indexViewPoducto);
 productoRouter.get("/", readProducto);
 productoRouter.post("/",storageMulter.single("imagen"), createProducto);
-productoRouter.post("/update/:idProducto",storageMulter.single("imagen"), updateProducto);
+productoRouter.post("/update/:idCliente",storageMulter.single("imagen"), updateProducto);
 productoRouter.delete("/:idProducto",deleteProducto);
 
 export default productoRouter;

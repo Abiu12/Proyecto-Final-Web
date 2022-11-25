@@ -15,7 +15,7 @@ const producto = (() => {
   const _actionButtonEditar = async (event) => {
     const $btn = event.target;
     const idCliente = $btn.getAttribute("item-id");
-    const response = await http.get(`${BASE_URL}?idCliente=${idCliente}`);
+    const response = await http.get(`${BASE_URL}?idProducto=${idCliente}`);
     formProducto.setData(response[0],'PUT');
     formProducto.setVisible(true);
     producto.setVisible(false);

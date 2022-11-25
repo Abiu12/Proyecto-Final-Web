@@ -24,7 +24,6 @@ const formProducto = (() => {
     $noCasaExt.value = noCasaExt;
     $colonia.value = colonia;
     $municipio.value = municipio;
-    
     $form.setAttribute("method", typeRender);
     $form.setAttribute("item-id", idCliente);
     M.updateTextFields();
@@ -41,6 +40,7 @@ const formProducto = (() => {
   const _configureBtnGuardar = () => {
     const $btnGuardar = document.getElementById("btnGuardar");
     $btnGuardar.addEventListener("click", () => {
+        debugger
       const method = $form.getAttribute("method");
       const formData = new FormData($form);
       if (method.toUpperCase() === "POST") {
