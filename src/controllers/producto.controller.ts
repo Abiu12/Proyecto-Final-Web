@@ -13,6 +13,18 @@ export async function readProducto(req: Request, res: Response) {
   });
   res.status(200).json(productos);
 }
+export async function readProductoById(req: Request, res: Response) {
+  const {idCliente} = req.params;
+  const producto = await ProductoModel.findOne({
+    attributes:["idCliente","nombre","primerApellido","segundoApellido","telefono","calle","noCasaInt","noCasaExt","colonia","municipio"],
+    raw: true,
+    where:{
+      idCliente
+    }
+  }
+  );
+  res.status(200).json(producto);
+}
 
 export async function createProducto(req: Request, res: Response) {
   try {

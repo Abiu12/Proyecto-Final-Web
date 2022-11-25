@@ -13,10 +13,12 @@ const producto = (() => {
   };
 
   const _actionButtonEditar = async (event) => {
+    debugger;
     const $btn = event.target;
     const idCliente = $btn.getAttribute("item-id");
-    const response = await http.get(`${BASE_URL}?idProducto=${idCliente}`);
-    formProducto.setData(response[0],'PUT');
+    const response = await http.get(`${BASE_URL}/${idCliente}`);
+    debugger;
+    formProducto.setData(response,'PUT');
     formProducto.setVisible(true);
     producto.setVisible(false);
   };
@@ -80,7 +82,7 @@ const producto = (() => {
     $btnNuevo.addEventListener("click", () => {
       producto.setVisible(false);
       formProducto.setVisible(true);
-      producto.setData({},'POST')
+      formProducto.setData({},'POST')
     });
   };
 
