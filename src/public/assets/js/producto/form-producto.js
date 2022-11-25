@@ -40,14 +40,13 @@ const formProducto = (() => {
   const _configureBtnGuardar = () => {
     const $btnGuardar = document.getElementById("btnGuardar");
     $btnGuardar.addEventListener("click", () => {
-        debugger
       const method = $form.getAttribute("method");
       const formData = new FormData($form);
       if (method.toUpperCase() === "POST") {
         _create(formData);
       }
 
-      if (method === "PUT") {
+      if (method.toUpperCase === "PUT") {
         _update(formData);
       }
     });
