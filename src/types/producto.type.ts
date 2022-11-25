@@ -1,4 +1,4 @@
-export default interface ClienteType {
+export default interface ProductoType {
   idCliente?: number;
   nombre?: string;
   primerApellido?: string;

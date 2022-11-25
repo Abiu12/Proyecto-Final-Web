@@ -1,16 +1,31 @@
-.image {
-    position: relative;
-    width: 450px;
-    height: 250px;
-    top: 30px;
-    padding-left: 70px;
+header,
+main,
+footer {
+    padding-left: 300px;
 }
 
-h3{
-    /* background: blue; */
-    /* background-color: blue; */
+@media only screen and (max-width : 992px) {
+
+    header,
+    main,
+    footer {
+        padding-left: 0;
+    }
 }
-.title-black{
-    font-size: 30px;
-    font-weight: bold;
+
+.mx-basic{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.my-basic{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+body{
+    background-color: #f5f8fa;
+}
+
+.img-icon{
+    height: 100px;
+    width: 120px;
 }

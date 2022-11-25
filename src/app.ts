@@ -4,11 +4,12 @@ import path from "path"
 import dotenv from "dotenv";
 dotenv.config();
 
-import empleadoRouter from "./routes/empleado.route";
-import usuarioRouter from "./routes/usuario.route";
-import clientesRouter from "./routes/clientes.route";
-import electrodomesticosRouter from "./routes/electrodomesticos.route";
-import pendientesRouter from "./routes/pendientes.route";
+// import indexRouter from "./routes/index.route";
+import productoRouter from "./routes/producto.route";
+// import clienteRouter from "./routes/clientes.route";
+// import fileRoute from "./routes/file.route";
+
+
 const app: Application = express();
 
 
@@ -25,13 +26,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'./public')))
 
-//routes
-
-app.use("/administrador/empleados",empleadoRouter);
-app.use("/administrador/usuarios",usuarioRouter);
-app.use("/empleado/clientes",clientesRouter);
-app.use("/empleado/electrodomesticos",electrodomesticosRouter);
-app.use("/tecnico/pendientes",pendientesRouter);
-
+// //routes
+// app.use("/", indexRouter);
+// app.use("/api/v1/file",fileRoute);
+app.use("/catalogo/producto",productoRouter);
+// app.use("/catalogo/cliente",clienteRouter);
 
 export default app;

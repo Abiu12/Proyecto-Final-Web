@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ClientesModel } from "../models/clientes.model";
+import { ClienteModel } from "../models/clientes.model";
 import { ElectrodomesticosModel } from "../models/electrodomesticos.model";
 
 export async function viewPendientes(req: Request, res: Response) {
@@ -15,7 +15,7 @@ export async function viewPendientes(req: Request, res: Response) {
   var electrodomestico = JSON.parse(JSON.stringify(recordsElectrodomestico));
   const recordsCliente = [];
   for (let index = 0; index < recordsElectrodomestico.length; index++) {
-     recordsCliente.push(await ClientesModel.findOne({ where: {idCliente:electrodomestico[index].idCliente}, raw: true })); 
+     recordsCliente.push(await ClienteModel.findOne({ where: {idCliente:electrodomestico[index].idCliente}, raw: true })); 
   }
   const data = {recordsElectrodomestico,recordsCliente};
   res.render("pendientes/pendientes", data);

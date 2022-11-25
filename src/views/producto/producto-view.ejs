@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../comunes/components/headers-component") -%>
+</head>
+
+<body>
+
+    <%- include("../comunes/components/sidenav-component") -%>
+        <main>
+            <h4 class="my-basic">Clientes</h4>
+            
+                <%- include("../producto/components/producto-form-component") -%>
+                <%- include("../producto/components/producto-table-component") -%>
+          
+
+            <!--img width="100" height="100" src="/api/v1/file?filePath= " alt="" srcset=""-->
+
+        </main>
+
+    <%- include("../comunes/components/footer-component") -%>
+    <script src="/assets/js/producto/form-producto.js"></script>
+    <script src="/assets/js/producto/producto.js"></script>
+</body>
+
+</html>

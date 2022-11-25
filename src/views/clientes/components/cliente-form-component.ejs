@@ -1,0 +1,57 @@
+<div id="containerForm" class="card mx-basic my-basic hide">
+    <form id="formCliente" action="/catalogo/cliente" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="nombre" name="nombre" type="text" class="validate">
+                <label for="nombre">Nombre</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="primerApellido" name="primerApellido" type="text" class="validate">
+                <label for="primerApellido">Primer apellido</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="segundoApellido" name="segundoApellido" type="text" class="validate">
+                <label for="segundoApellido">Segundo apellido</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="telefono" name="telefono" type="text" class="validate">
+                <label for="telefono">Telefono</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="calle" name="calle" type="text" class="validate">
+                <label for="calle">Calle</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="noCasaInt" name="noCasaInt" type="text" class="validate">
+                <label for="noCasaInt">No interior</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="noCasaExt" name="noCasaExt" type="text" class="validate">
+                <label for="noCasaExt">No Exterior</label>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="colonia" name="colonia" type="text" class="validate">
+                <label for="colonia">Colonia</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="municipio" name="municipio" type="text" class="validate">
+                <label for="municipio">Municipio</label>
+            </div>           
+        </div>
+    </form>
+    <div class="row">
+        <div class="col">
+            <button type="submit" id="btnGuardar"
+                class="waves-effect waves-light btn my-basic mx-basic blue">Registrar</button>
+        </div>
+        <div class="col">
+            <button id="btnCancelar" class="waves-effect waves-light btn my-basic mx-basic red">Cancelar</button>
+        </div>
+    </div>
+</div>

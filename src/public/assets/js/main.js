@@ -1,38 +1,66 @@
-const $btn = document.getElementById("btnObtener");
-// console.log($btn);
-const $bodyTable = document.getElementById("data");
-$btn.addEventListener("click", async (event) => {
-    const response = await fetch('http://localhost:4000/api/v1/example/listar');  /**Al picar direcciona a listar y obtenemos datos de una peticion, de response de controller */
-    const body = await response.json(); /**fetch responde con muchos datos, necesitamos el body de la respuesta y lo recibimos en un json */
-    // console.log(body); body es un arreglo
-    for (let index = 0; index < body.length; index++) {
+const main = (() => {
+  const $bodyTable = document.getElementById("data");
+  const BASE_URL = "http://localhost:4000/api/v2/example";
 
-        const idStatus = body[index]["idStatus"];
-        const status = body[index]["status"];
-        const description = body[index]["description"];
-        const $nuevaFila = document.createElement('tr');
-        const $columnaId = document.createElement('td');
-        const $columnaStatus = document.createElement('td');
-        const $columnaDescription = document.createElement('td');
-        $columnaId.innerHTML = idStatus;
-        $columnaStatus.innerHTML = status;
-        $columnaDescription.innerHTML = description;
-
-        $nuevaFila.appendChild($columnaId);
-        $nuevaFila.appendChild($columnaStatus);
-        $nuevaFila.appendChild($columnaDescription);
-        
-        $bodyTable.appendChild($nuevaFila);
-        
-
-
-        // const htlm = `
-        // <tr>
-        //     <td>${idStatus}</td>
-        //     <td>${status}</td>
-        //     <td>${description}</td>
-        // </tr>
-        // `;
-        // $bodyTable.innerHTML += htlm;
+  const _getData = async () => {
+    debugger;
+    const response = await http.get(BASE_URL);
+    for (let index = 0; index < response.length; index++) {
+      const $row = _createRow(response[index], "idStatus");
+      $bodyTable.appendChild($row);
     }
-});
+  };
+
+  const _actionButtonEditar = async (event) => {
+    const $formStatus = document.getElementById("formStatus");
+    $formStatus.setAttribute("method","PUT");
+    const $btn = event.target;
+    const idStatus = $btn.getAttribute("item-id");
+    const response = await http.get(`${BASE_URL}/${idStatus}`);
+    _setData(response[0]);
+  };
+
+  const _createRow = (item = {}, itemId = "") => {
+    debugger;
+    const $row = document.createElement("tr");
+    for (const key in item) {
+      const value = item[key];
+      const $td = document.createElement("td");
+      $td.innerText = value;
+      $row.appendChild($td);
+    }
+    $row.appendChild(_createBtnAction(item[itemId], "Editar", _actionButtonEditar));
+    $row.appendChild(_createBtnAction(item[itemId], "Eliminar"));
+    return $row;
+  };
+
+  const _createBtnAction = (itemId = 0, labelBtn = "", _actionFuntion = () => {}) => {
+    debugger;
+    const $btn = document.createElement("button");
+    $btn.innerText = labelBtn;
+    $btn.className += "waves-effect waves-light btn red";
+    $btn.setAttribute("item-id", itemId);
+    $btn.addEventListener("click", _actionFuntion);
+    return $btn;
+  };
+
+  const _setData = (item = {}) => {
+    const $inputStatus = document.getElementById("status");
+    const $inputDescription = document.getElementById("description");
+    const { idStatus, description, status } = item;
+    $inputDescription.value = description;
+    $inputStatus.value = status;
+  };
+
+  const _initElements = () => {
+    _getData();
+  };
+
+  return {
+    init: () => {
+      _initElements();
+    },
+  };
+})();
+
+main.init();

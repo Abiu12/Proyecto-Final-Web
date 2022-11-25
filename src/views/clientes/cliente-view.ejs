@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../comunes/components/headers-component") -%>
+</head>
+
+<body>
+    <%- include("../comunes/components/sidenav-component") -%>
+        <main>
+            <h4 class="my-basic">Cliente</h4>
+            <%- include("../cliente/components/cliente-form-component") -%>
+                <%- include("../cliente/components/cliente-table-component") -%>
+        </main>
+
+        <%- include("../comunes/components/footer-component") -%>
+            <script src="/assets/js/cliente/form-cliente.js"></script>
+            <script src="/assets/js/cliente/cliente.js"></script>
+</body>
+
+</html>

@@ -1,13 +1,13 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../database/database.config";
-import ClientesType from "../types/clientes.type";
-import { ElectrodomesticosModel } from "./electrodomesticos.model";
+import ProductoType from "../types/producto.type";
 
 
-export class ClienteModel extends Model<ClientesType> {}
+export class ProductoModel extends Model<ProductoType> {}
 
-ClienteModel.init(
+ProductoModel.init(
   {
+    
     idCliente: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -50,16 +50,9 @@ ClienteModel.init(
       type: DataTypes.STRING(25),
       allowNull: false,
     },
-  }
-  ,
+  },
   {
     sequelize,
-    tableName: "clientes",
-  }
-);
-ClienteModel.hasMany(ElectrodomesticosModel,
-  {
-    foreignKey:"idCliente",
-    sourceKey:"idCliente",
+    tableName: "producto",
   }
 );
