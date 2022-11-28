@@ -1,10 +1,11 @@
 import {Router} from "express";
-import {indexViewCliente,readCliente, createCliente,updateCliente,deleteCliente} from "../controllers/clientes.controller"
-const clienteRouter: Router = Router();
+import {createCliente,updateCliente,deleteCliente, viewClientes, viewAgregarCliente, viewFormEditCliente} from "../controllers/clientes.controller"
+const clientesRouter: Router = Router();
+clientesRouter.get("/view",viewClientes);
+clientesRouter.post("/create",createCliente);
+clientesRouter.post("/update/:idCliente",updateCliente); 
+clientesRouter.get("/delete/:idCliente",deleteCliente) 
 
-clienteRouter.get("/view",indexViewCliente);
-clienteRouter.get("/",readCliente);
-clienteRouter.post("/",createCliente);
-clienteRouter.post("/update/:idCliente",updateCliente); 
-clienteRouter.delete("/:idCliente",deleteCliente);
-export default clienteRouter;
+clientesRouter.get("/view/agregar_cliente",viewAgregarCliente); 
+clientesRouter.get("/view/modificar_cliente/:idCliente",viewFormEditCliente); 
+export default clientesRouter;

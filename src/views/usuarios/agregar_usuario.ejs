@@ -58,12 +58,8 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <select name="rol" id="rol" class="form-control mb-3">
-                            <option value="Administrador">Administrador</option>
-                            <option value="Tecnico">Técnico</option>
-                            <option value="Empleado">Empleado</option>
-                        </select>
-
+                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
+                            name="rol">
                     </div>
                     <div class="col-4">
                         <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"

@@ -4,9 +4,9 @@ import ClientesType from "../types/clientes.type";
 import { ElectrodomesticosModel } from "./electrodomesticos.model";
 
 
-export class ClienteModel extends Model<ClientesType> {}
+export class ClientesModel extends Model<ClientesType> {}
 
-ClienteModel.init(
+ClientesModel.init(
   {
     idCliente: {
       type: DataTypes.INTEGER,
@@ -18,11 +18,11 @@ ClienteModel.init(
       type: DataTypes.STRING(25),
       allowNull: false,
     },
-    primerApellido: {
+    apellidoPaterno: {
       type: DataTypes.STRING(25),
       allowNull: false,
     },
-    segundoApellido: {
+    apellidoMaterno: {
       type: DataTypes.STRING(25),
       allowNull: false,
     },
@@ -43,21 +43,16 @@ ClienteModel.init(
       allowNull: false,
     },
     colonia: {
-      type: DataTypes.STRING(25),
+      type: DataTypes.STRING(10),
       allowNull: false,
     },
-    municipio: {
-      type: DataTypes.STRING(25),
-      allowNull: false,
-    },
-  }
-  ,
+  },
   {
     sequelize,
     tableName: "clientes",
   }
 );
-ClienteModel.hasMany(ElectrodomesticosModel,
+ClientesModel.hasMany(ElectrodomesticosModel,
   {
     foreignKey:"idCliente",
     sourceKey:"idCliente",

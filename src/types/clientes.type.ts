@@ -1,12 +1,11 @@
 export default interface ClienteType {
   idCliente?: number;
   nombre?: string;
-  primerApellido?: string;
-  segundoApellido?: string;
+  apellidoPaterno?: string;
+  apellidoMaterno?: string;
   telefono?: string;
   calle?: string;
   noCasaInt?: string;
   noCasaExt?: string;
   colonia?: string;
-  municipio?:string;
 }
