@@ -1,11 +1,11 @@
-<%- include("../comunes/components/header-empleado-component") -%>
+<%- include("../comunes/components/header-component") -%>
     <title>Actualizar Cliente</title>
 
     <div class="container">
         <h1>Actualizar cliente</h1>
         <br>
         <br>
-        <form action="/empleado/clientes/update/<%=idCliente%>" method="PUT">
+        <form action="/clientes/update/<%=idCliente%>" method="POST">
             <div class="container">
                 <div class="row">
                     <div class="col-10">
@@ -38,11 +38,11 @@
                     </div>
                     <div class="col">
                         <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                            name="apellidoPaterno" value="<%=apellidoPaterno%>">
+                            name="primerApellido" value="<%=primerApellido%>">
                     </div>
                     <div class="col">
                         <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                            name="apellidoMaterno" value="<%=apellidoMaterno%>">
+                            name="segundoApellido" value="<%=segundoApellido%>">
                     </div>
                     <div class="col">
                         <input type="text" class="form-control mb-3" name="telefono" value="<%=telefono%>"

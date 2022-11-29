@@ -1,0 +1,57 @@
+<%- include("../comunes/components/header-component") -%>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Actualizar orden de trabajo</h1>
+                <div class="row">
+                    <div class="col">
+                        <h3>Cliente: <%=recordsCliente["nombre"]%>
+                            <%=recordsCliente["primerApellido"]%>
+                                <%=recordsCliente["segundoApellido"]%>
+                        </h3>
+                    </div>
+    
+                    <div class="col">
+                        <h3>Electrodoméstico: <%=recordsElectrodomestico["nombre"]%>
+                            <%=recordsElectrodomestico["marca"]%>
+                                <%=recordsElectrodomestico["modelo"]%>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <form action="/orden/update/<%=recordsElectrodomestico["idCliente"]%>/<%=recordsElectrodomestico["idElectrodomestico"]%>/<%=recordsOrden["idOrden"]%> " method="POST">
+                <h2 class="title-black">Datos de la orden</h2>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <h4>Trabajo a realizar*</h4>
+                    </div>
+                    <div class="col">
+                        <h4>Precio</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="trabajo"
+                            value="<%=recordsOrden["trabajo"]%>" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control mb-3" name="precio" value="<%=recordsOrden["precio"]%>" required>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="row">
+                    <div class="col-9"></div>
+                    <div class="col">
+                        <button class="btn btn-secondary" type="submit">Actualizar orden</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <%- include("../comunes/components/footer-component") -%>

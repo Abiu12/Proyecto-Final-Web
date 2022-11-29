@@ -1,11 +1,12 @@
-<%- include("../comunes/components/header-empleado-component") -%>
-    <div class="container">
+<%- include("../comunes/components/header-component") -%>
+    <div class="container col-12">
+
         <div class="row">
             <div class="col">
                 <h1>Electrodomésticos</h1>
                 <h3>Cliente: <%=recordsCliente[0]["nombre"]%>
-                        <%=recordsCliente[0]["apellidoPaterno"]%>
-                            <%=recordsCliente[0]["apellidoMaterno"]%>
+                        <%=recordsCliente[0]["primerApellido"]%>
+                            <%=recordsCliente[0]["segundoApellido"]%>
                 </h3>
             </div>
 
@@ -14,15 +15,13 @@
         <div class="row">
             <div class="col-9"></div>
             <div class="col-1">
-                <a href="/empleado/electrodomesticos/view/agregar_electrodomestico/<%=recordsCliente[0]["idCliente"]%>"><input class="btn btn-secondary" type="button" value="Agregar electrodoméstico"></a>
+                <a href="/electrodomesticos/view/agregar_electrodomestico/<%=recordsCliente[0]["idCliente"]%>"><input class="btn btn-secondary" type="button" value="Agregar electrodoméstico"></a>
             </div>
         </div>
 
-    </div>
 
-    <br>
+        <br>
 
-    <div class="container">
         <div class="row">
             <div class="col-12 overflow-auto">
                 <table class="table ">
@@ -75,11 +74,14 @@
                                 <td>
                                     <div class="row">
                                         <div class="col">
-                                            <a href="/empleado/electrodomesticos/view/modificar_electrodomestico/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %>" class="fas fa-pen"> </a>
+                                            <a href="/electrodomesticos/view/modificar_electrodomestico/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %>" class="fas fa-pen"> </a>
 
                                         </div>
                                         <div class="col">
-                                            <a href="/empleado/electrodomesticos/delete/<%=records[i][" idCliente"] %>/<%=records[i]["idElectrodomestico"] %> "class="fas fa-trash-alt"></a>
+                                            <a href="/electrodomesticos/delete/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %> "class="fas fa-trash-alt"></a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="/orden/view/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %> "class="fas fa-clipboard-list"></a>
                                         </div>
                                     </div>
                                 </td>
@@ -89,6 +91,9 @@
                 </table>
             </div><!-- Fin de col-11 -->
         </div><!-- Fin de Row -->
+
+
+
     </div>
-    <!-- Fin de Tabla container -->
+
     <%- include("../comunes/components/footer-component") -%>

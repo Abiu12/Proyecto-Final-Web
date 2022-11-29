@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { ClientesModel } from "../models/clientes.model";
 import { ElectrodomesticosModel } from "../models/electrodomesticos.model";
+import { OrdenTrabajoModel } from "../models/orden.trabajo.model";
 
 export async function viewPendientes(req: Request, res: Response) {
   const { Op } = require("sequelize");
@@ -13,11 +14,17 @@ export async function viewPendientes(req: Request, res: Response) {
     }
   });
   var electrodomestico = JSON.parse(JSON.stringify(recordsElectrodomestico));
+  console.log("Electrodomesticos");
+  
+  console.log(electrodomestico);
+  
   const recordsCliente = [];
-  for (let index = 0; index < recordsElectrodomestico.length; index++) {
+  const recordOrdenTrabajo = [];
+  for (let index = 0; index < electrodomestico.length; index++) {
      recordsCliente.push(await ClientesModel.findOne({ where: {idCliente:electrodomestico[index].idCliente}, raw: true })); 
+     recordOrdenTrabajo.push(await OrdenTrabajoModel.findOne({where:{idCliente:electrodomestico[index].idCliente,idElectrodomestico:electrodomestico[index].idElectrodomestico}, raw:true}));
   }
-  const data = {recordsElectrodomestico,recordsCliente};
+  const data = {recordsElectrodomestico,recordsCliente,recordOrdenTrabajo};
   res.render("pendientes/pendientes", data);
 }
 
@@ -28,7 +35,7 @@ export async function updateEstadoElectrodomestico(req: Request, res: Response) 
     idElectrodomestico
   }});
   entity?.update({ estado:statusElectrodomestico})
-  res.redirect("/tecnico/pendientes/view"); 
+  res.redirect("/pendientes/view"); 
 }
 
 

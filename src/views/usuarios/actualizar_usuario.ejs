@@ -1,9 +1,9 @@
-<%- include("../comunes/components/header-admin-component") -%>
+<%- include("../comunes/components/header-component") -%>
     <div class="container">
         <h1>Actualizar usuario</h1>
         <br>
         <br>
-        <form action="/administrador/usuarios/update/<%=idEmpleado%>/<%=idUsuario%>" method="POST">
+        <form action="/usuarios/update/<%=idEmpleado%>/<%=idUsuario%>" method="POST">
             <div class="container">
                 <div class="row">
                     <div class="col-10">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col">
                         <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                            name="contrasenia" value="<%=contrasenia%>">
+                            name="contrasenia" >
                     </div>
                     <div class="col">
                         <select name="estatus" class="form-control mb-3" id="estatus">

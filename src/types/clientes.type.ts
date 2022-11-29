@@ -1,8 +1,8 @@
 export default interface ClienteType {
   idCliente?: number;
   nombre?: string;
-  apellidoPaterno?: string;
-  apellidoMaterno?: string;
+  primerApellido?: string;
+  segundoApellido?: string;
   telefono?: string;
   calle?: string;
   noCasaInt?: string;

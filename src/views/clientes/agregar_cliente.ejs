@@ -1,4 +1,4 @@
-<%- include("../comunes/components/header-empleado-component") -%>
+<%- include("../comunes/components/header-component") -%>
     <title>Agregar Cliente</title>
     <script type="text/javascript" src="apps.js"></script>
 
@@ -7,7 +7,7 @@
         <h1>Agregar cliente</h1>
         <br>
         <br>
-        <form action="/empleado/clientes/create" method="POST">
+        <form action="/clientes/create" method="POST">
             <div class="container">
                 <div class="row">
                     <div class="col-10">
@@ -18,7 +18,6 @@
                     </div>
 
                 </div>
-
                 <br>
                 <div class="row">
                     <div class="col">
@@ -42,11 +41,11 @@
                     </div>
                     <div class="col">
                         <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                            name="apellidoPaterno">
+                            name="primerApellido">
                     </div>
                     <div class="col">
                         <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                            name="apellidoMaterno">
+                            name="segundoApellido">
                     </div>
                     <div class="col">
                         <input type="text" class="form-control mb-3" name="telefono" placeholder=""

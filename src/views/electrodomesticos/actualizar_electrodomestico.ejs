@@ -1,4 +1,4 @@
-<%- include("../comunes/components/header-empleado-component") -%>
+<%- include("../comunes/components/header-component") -%>
     <div class="container">
         <h1>Actualizar electrodoméstico</h1>
         <br>
@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <form action="/empleado/electrodomesticos/update/<%=dataElectrodomestico["idCliente"]%>/<%=dataElectrodomestico["idElectrodomestico"]%>" method="POST">
+        <form action="/electrodomesticos/update/<%=dataElectrodomestico["idCliente"]%>/<%=dataElectrodomestico["idElectrodomestico"]%>" method="POST">
 
                 <h2 class="title-black">Datos del electrodoméstico</h2>
                 <br>

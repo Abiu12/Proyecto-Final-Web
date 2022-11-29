@@ -9,6 +9,7 @@ import usuarioRouter from "./routes/usuario.route";
 import clientesRouter from "./routes/clientes.route";
 import electrodomesticosRouter from "./routes/electrodomesticos.route";
 import pendientesRouter from "./routes/pendientes.route";
+import ordenRouter from "./routes/orden.trabajo.route";
 const app: Application = express();
 
 
@@ -27,11 +28,12 @@ app.use(express.static(path.join(__dirname,'./public')))
 
 //routes
 
-app.use("/administrador/empleados",empleadoRouter);
-app.use("/administrador/usuarios",usuarioRouter);
-app.use("/empleado/clientes",clientesRouter);
-app.use("/empleado/electrodomesticos",electrodomesticosRouter);
-app.use("/tecnico/pendientes",pendientesRouter);
+app.use("/empleados",empleadoRouter);
+app.use("/usuarios",usuarioRouter);
+app.use("/clientes",clientesRouter);
+app.use("/electrodomesticos",electrodomesticosRouter);
+app.use("/orden",ordenRouter);
+app.use("/pendientes",pendientesRouter);
 
 
 export default app;

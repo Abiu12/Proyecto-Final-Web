@@ -1,0 +1,54 @@
+<%- include("../comunes/components/header-component") -%>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Orden de trabajo</h1>
+            <div class="row">
+                <div class="col">
+                    <h3>Cliente: <%=recordsCliente["nombre"]%>
+                        <%=recordsCliente["primerApellido"]%>
+                            <%=recordsCliente["segundoApellido"]%>
+                    </h3>
+                </div>
+
+                <div class="col">
+                    <h3>Electrodoméstico: <%=recordsElectrodomestico["nombre"]%>
+                        <%=recordsElectrodomestico["marca"]%>
+                            <%=recordsElectrodomestico["modelo"]%>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <form action="/orden/create/<%=recordsCliente["idCliente"] %>/<%=recordsElectrodomestico["idElectrodomestico"] %>" method="POST">
+        <h2 class="title-black">Datos de la orden</h2>
+        <br>
+        <div class="row">
+            <div class="col">
+                <h4>Trabajo a realizar*</h4>
+            </div>
+            <div class="col">
+                <h4>Precio*</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="trabajo"
+                    required>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control mb-3" name="precio" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9"></div>
+            <div class="col">
+                <button class="btn btn-secondary" type="submit">Registrar orden de trabajo</button>
+            </div>
+        </div>
+    </form>
+</div>
+  <%- include("../comunes/components/footer-component") -%>

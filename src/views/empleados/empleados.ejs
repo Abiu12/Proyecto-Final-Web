@@ -1,11 +1,11 @@
-<%- include("../comunes/components/header-admin-component") -%>
+<%- include("../comunes/components/header-component") -%>
     <!-- Begin Page Content -->
-    <div class="container">
+    <div class="container col-12">
         <h1>Empleados</h1>
         <div class="row">
             <div class="col-9"></div>
             <div class="col-1">
-                <a href="/administrador/empleados/view/agregar_empleado"><input class="btn btn-secondary" type="button"
+                <a href="/empleados/view/agregar_empleado"><input class="btn btn-secondary" type="button"
                         value="Agregar empleado"></a>
             </div>
         </div>
@@ -44,14 +44,14 @@
                         <td>
                             <div class="row">
                                 <div class="col">
-                                    <a href="/administrador/empleados/view/modificar_empleado/<%=records[i]["idEmpleado"] %>" class="fas fa-pen"> </a>
+                                    <a href="/empleados/view/modificar_empleado/<%=records[i]["idEmpleado"] %>" class="fas fa-pen"> </a>
 
                                 </div>
                                 <div class="col">
-                                    <a href="/administrador/empleados/delete/<%=records[i]["idEmpleado"] %>" class="fas fa-trash-alt"></a>
+                                    <a href="/empleados/delete/<%=records[i]["idEmpleado"] %>" class="fas fa-trash-alt"></a>
                                 </div>
                                 <div class="col">
-                                    <a href="/administrador/usuarios/view/<%=records[i]["idEmpleado"] %>" class="fas fa-user"></a>
+                                    <a href="/usuarios/view/<%=records[i]["idEmpleado"] %>" class="fas fa-user"></a>
                                 </div>
                             </div>
                         </td>

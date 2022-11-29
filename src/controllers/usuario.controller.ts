@@ -7,17 +7,18 @@ export async function createUsuario(req: Request, res: Response) {
   const {correo, contrasenia, estatus, rol, token} = req.body;
   const contraseniaHash=hashPassword(contrasenia);
   await UsuarioModel.create({idEmpleado:Number(idEmpleado),correo, contrasenia:contraseniaHash, estatus, rol, token_restauracion:token});
-  res.redirect("/administrador/usuarios/view/"+idEmpleado);
+  res.redirect("/usuarios/view/"+idEmpleado);
 }
 export async function updateUsuario(req: Request, res: Response) { 
   const {idEmpleado,idUsuario} = req.params;
   const {correo, contrasenia, estatus, rol, token} = req.body; 
+  const contraseniaHash=hashPassword(contrasenia);
   const entity = await UsuarioModel.findOne({where:{
     idEmpleado,
     idUsuario
   }}); 
-  entity?.update({idEmpleado:Number(idEmpleado),correo, contrasenia, estatus, rol, token_restauracion:token}) /** ? es por si viene un null */
-  res.redirect("/administrador/usuarios/view/"+idEmpleado); 
+  entity?.update({idEmpleado:Number(idEmpleado),correo, contrasenia:contraseniaHash, estatus, rol, token_restauracion:token}) /** ? es por si viene un null */
+  res.redirect("/usuarios/view/"+idEmpleado); 
 }
 export async function deleteUsuario(req: Request, res: Response) {
   const {idEmpleado,idUsuario} = req.params;
@@ -26,7 +27,7 @@ export async function deleteUsuario(req: Request, res: Response) {
     idUsuario
   }});
   entity?.destroy();
-  res.redirect("/administrador/usuarios/view/"+idEmpleado); 
+  res.redirect("/usuarios/view/"+idEmpleado); 
 }
 export async function viewUsuarios(req: Request, res: Response) {
   const{idEmpleado}=req.params;

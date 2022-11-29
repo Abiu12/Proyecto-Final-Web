@@ -10,7 +10,7 @@ export async function createElectrodomestico(req: Request, res: Response) {
   const codigo_seguimiento = "E"+idCliente+fecha+hora;
   const {nombre, modelo, marca, fecha_entrada, fecha_salida, estado, garantia, observaciones } = req.body;
   await ElectrodomesticosModel.create({ codigo_seguimiento, nombre, modelo, marca, fecha_entrada, fecha_salida, estado, garantia, observaciones, idCliente:Number(idCliente) });
-  res.redirect("/empleado/electrodomesticos/view/" + idCliente);
+  res.redirect("/electrodomesticos/view/" + idCliente);
 }
 export async function deleteElectrodomestico(req: Request, res: Response) {
   const {idCliente,idElectrodomestico} = req.params;
@@ -21,7 +21,7 @@ export async function deleteElectrodomestico(req: Request, res: Response) {
     }
   });
   entity?.destroy();
-  res.redirect("/empleado/electrodomesticos/view/" + idCliente);
+  res.redirect("/electrodomesticos/view/" + idCliente);
 }
 export async function updateElectrodomestico(req: Request, res: Response) {
   const {idCliente,idElectrodomestico} = req.params;
@@ -31,7 +31,7 @@ export async function updateElectrodomestico(req: Request, res: Response) {
     idElectrodomestico
   }}); 
   entity?.update({ codigo_seguimiento, nombre, modelo, marca, fecha_entrada, fecha_salida, estado, garantia, observaciones }) 
-  res.redirect("/empleado/electrodomesticos/view/" + idCliente ); 
+  res.redirect("/electrodomesticos/view/" + idCliente ); 
 }
 export async function viewElectrodomesticos(req: Request, res: Response) {
   const {idCliente} = req.params;
@@ -44,7 +44,7 @@ export async function viewAgregarElectrodomestico(req: Request, res: Response) {
   const {idCliente}=req.params;
   const recordsCliente = await ClientesModel.findAll({ where: { idCliente }, raw: true });
   const data = { httpCode: 0, message: "", recordsCliente };
-  res.render("electrodomesticos/agregar_Electrodomestico", data);
+  res.render("electrodomesticos/agregar_electrodomestico", data);
 }
 export async function viewFormEditElectrodomestico(req: Request, res: Response) {
   const { idElectrodomestico,idCliente } = req.params;
@@ -52,7 +52,7 @@ export async function viewFormEditElectrodomestico(req: Request, res: Response) 
   const recordsCliente = await ClientesModel.findOne({ where: { idCliente}, raw: true });
   const dataElectrodomestico = entity || {};
   const data = { recordsCliente,dataElectrodomestico };
-  res.render("electrodomesticos/actualizar_Electrodomestico", data);
+  res.render("electrodomesticos/actualizar_electrodomestico", data);
 }
 
 

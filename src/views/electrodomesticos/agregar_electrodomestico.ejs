@@ -1,4 +1,4 @@
-<%- include("../comunes/components/header-empleado-component") -%>
+<%- include("../comunes/components/header-component") -%>
 <div class="container">
     <h1>Agregar electrodoméstico</h1>
     <br>
@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-10">
-            <h3>Cliente: <%=recordsCliente[0]["nombre"] %> <%=recordsCliente[0]["apellidoPaterno"] %> <%=recordsCliente[0]["apellidoMaterno"] %> </h3>
+            <h3>Cliente: <%=recordsCliente[0]["nombre"] %> <%=recordsCliente[0]["primerApellido"] %> <%=recordsCliente[0]["segundoApellido"] %> </h3>
         </div>
         <div class="col-2">
             <h6>* Campos obligatorios</h6>
@@ -14,7 +14,7 @@
     </div>
     <br>
     <br>
-    <form action="/empleado/electrodomesticos/create/<%=recordsCliente[0]["idCliente"] %>" method="POST">
+    <form action="/electrodomesticos/create/<%=recordsCliente[0]["idCliente"] %>" method="POST">
         <h2 class="title-black">Datos del electrodoméstico</h2>
         <br>
         <div class="row">

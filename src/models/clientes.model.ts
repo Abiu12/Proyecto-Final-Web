@@ -17,14 +17,17 @@ ClientesModel.init(
     nombre: {
       type: DataTypes.STRING(25),
       allowNull: false,
+      
     },
-    apellidoPaterno: {
+    primerApellido: {
       type: DataTypes.STRING(25),
       allowNull: false,
+      
     },
-    apellidoMaterno: {
+    segundoApellido: {
       type: DataTypes.STRING(25),
       allowNull: false,
+      
     },
     telefono: {
       type: DataTypes.STRING(10),

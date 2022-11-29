@@ -1,6 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../database/database.config";
 import ElectrodomesticosType from "../types/electrodomesticos.type";
+import { OrdenTrabajoModel } from "./orden.trabajo.model";
 
 
 export class ElectrodomesticosModel extends Model<ElectrodomesticosType> {}
@@ -59,5 +60,12 @@ ElectrodomesticosModel.init(
   {
     sequelize,
     tableName: "electrodomesticos",
+  }
+);
+
+ElectrodomesticosModel.hasOne(OrdenTrabajoModel,
+  {
+    foreignKey:"idElectrodomestico",
+    sourceKey:"idElectrodomestico",
   }
 );
