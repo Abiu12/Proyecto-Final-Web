@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Seguimiento</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Varela+Round&display=swap" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/main_cliente.css" />
+		<!-- <script src="main.js"></script> -->
+	</head>
+	<body>
+		<header>
+			<h2 class="centrado">Seguimiento de electrodomésticos</h2>
+      <h2 class="centrado">¡Electrodomestico encontrado!</h2>
+
+		</header>
+		<div id="main">
+      
+		<form>
+			<div class="alert alert-warning row">
+                <h1><br><%=electrodomestico.nombre%> <%=electrodomestico.modelo%> <%=electrodomestico.marca%> <br><br>  </h1>
+        <h2><br>Registrado a nombre de: <%=cliente.nombre%> <%=cliente.primerApellido%> <%=cliente.segundoApellido%> </h2>
+        <% if(orden!=null){ %> 
+        <h2><br>El trabajo es: <%= orden.trabajo%></h2>
+        <% } %> 
+        <% if(orden==null){ %> 
+            <h2><br>Sin trabajo registrado</h2>
+            <% } %> 
+        <h2><br>El estado de su electrodoméstico en el taller es: <%=electrodomestico.estado %> </h2>
+        <% if(electrodomestico.estado=="Terminado"){ %>
+            <h2><br>La reparación salió en: $<%= orden.precio%></h2>
+            <h2><br>¡Usted ya puede pasar al taller por su electrodoméstico!</h2>
+        <% } %> 
+
+      </div>
+			<!-- <div class="alert alert-warning row">
+				<br> <br> Si necesitas ayuda favor de comunicarse al <strong>9511928339</strong> 
+			</div> -->
+		</form>
+		<div class="container"><a href="/seguimiento/view"><input class="button" type="button" value="Regresar"></a></div>
+	</div>
+	</body>
+</html>

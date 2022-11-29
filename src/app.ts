@@ -10,6 +10,7 @@ import clientesRouter from "./routes/clientes.route";
 import electrodomesticosRouter from "./routes/electrodomesticos.route";
 import pendientesRouter from "./routes/pendientes.route";
 import ordenRouter from "./routes/orden.trabajo.route";
+import seguimiento from "./routes/seguimiento.route";
 const app: Application = express();
 
 
@@ -34,6 +35,7 @@ app.use("/clientes",clientesRouter);
 app.use("/electrodomesticos",electrodomesticosRouter);
 app.use("/orden",ordenRouter);
 app.use("/pendientes",pendientesRouter);
+app.use("/seguimiento",seguimiento);
 
 
 export default app;
