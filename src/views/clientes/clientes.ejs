@@ -1,15 +1,12 @@
 <%- include("../comunes/components/header-component") -%>
-    <div class="container">
-        <div class="row g-4">
-            <!-- Para busqueda -->
-        </div>
-    </div>
-
     <div class="container col-12">
         <h1>Clientes</h1>
         
         <div class="row">
-            <div class="col-10"></div>
+            <div class="col-10">
+                <br>
+                <input type="text" name="" id="buscar" placeholder="Buscar...">
+            </div>
             <div class="col-1">
                 <a href="/clientes/view/agregar_cliente"><input class="btn btn-secondary" type="button" value="Agregar cliente"></a>
             </div>
@@ -35,10 +32,10 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody class="datos">
                 <% for(var i=0; i<records.length ;i++){ %>
                     <tr>
-                        <td>
+                        <td >
                             <%=records[i]["nombre"] %>
                         </td>
                         <td>
@@ -86,5 +83,5 @@
         </div>
 
     </div>
-
+    <script type="text/javascript" src="/assets/js/search.js"></script>
     <%- include("../comunes/components/footer-component") -%>
