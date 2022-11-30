@@ -22,21 +22,9 @@ export async function createEmpleado(req: Request, res: Response) {
 export async function updateEmpleado(req: Request, res: Response) {
   const { nombre, primerApellido, segundoApellido, genero } = req.body;
   const { idEmpleado } = req.params;
-  const empleado = await EmpleadoModel.findOne({
-    where: {
-      nombre,
-      primerApellido,
-      segundoApellido
-    }, raw: true
-  });
-  if (empleado == null) {
-    const entity = await EmpleadoModel.findByPk(idEmpleado);
-    entity?.update({ nombre, primerApellido, segundoApellido, genero })
-    res.redirect("/empleados/view");
-  }
-  else {
-    res.redirect("/empleados/view/empleado_repetido");
-  }
+  const entity = await EmpleadoModel.findByPk(idEmpleado);
+  entity?.update({ nombre, primerApellido, segundoApellido, genero })
+  res.redirect("/empleados/view");
 }
 export async function deleteEmpleado(req: Request, res: Response) {
   const { idEmpleado } = req.params;

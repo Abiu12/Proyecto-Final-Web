@@ -27,21 +27,9 @@ export async function createCliente(req: Request, res: Response) {
 export async function updateCliente(req: Request, res: Response) {
   const idCliente = Number(req.params.idCliente);
   const { nombre, primerApellido, segundoApellido, telefono, calle, noCasaInt, noCasaExt, colonia } = req.body; /**recuperamos del body del form */
-  const cliente = await ClientesModel.findOne({
-    where: {
-      nombre,
-      primerApellido,
-      segundoApellido
-    }, raw: true
-  });
-  if (cliente == null) {
-    const entity = await ClientesModel.findByPk(idCliente);
-    entity?.update({ nombre, primerApellido, segundoApellido, telefono, calle, noCasaInt, noCasaExt, colonia }) /** ? es por si viene un null */
-    res.redirect("/clientes/view");
-  }
-  else {
-    res.redirect("/clientes/view/cliente_repetido");
-  }
+  const entity = await ClientesModel.findByPk(idCliente);
+  entity?.update({ nombre, primerApellido, segundoApellido, telefono, calle, noCasaInt, noCasaExt, colonia }) /** ? es por si viene un null */
+  res.redirect("/clientes/view");
 }
 
 export async function deleteCliente(req: Request, res: Response) {
