@@ -21,12 +21,12 @@ ClientesModel.init(
     },
     primerApellido: {
       type: DataTypes.STRING(25),
-      allowNull: false,
+      
       
     },
     segundoApellido: {
       type: DataTypes.STRING(25),
-      allowNull: false,
+      
       
     },
     telefono: {
@@ -39,7 +39,7 @@ ClientesModel.init(
     },
     noCasaInt: {
       type: DataTypes.STRING(10),
-      allowNull: false,
+      
     },
     noCasaExt: {
       type: DataTypes.INTEGER,

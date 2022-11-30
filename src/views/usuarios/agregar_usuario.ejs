@@ -19,23 +19,23 @@
                 <br>
                 <div class="row">
                     <div class="col">
-                        <h4>Correo</h4>
+                        <h4>Correo*</h4>
                     </div>
                     <div class="col">
-                        <h4>Contraseña</h4>
+                        <h4>Contraseña*</h4>
                     </div>
                     <div class="col">
-                        <h4>Estatus</h4>
+                        <h4>Estatus*</h4>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col">
-                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="correo"  required>
+                        <input type="text"  class="form-control mb-3" name="correo"  required>
                     </div>
                     <div class="col">
-                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                            name="contrasenia">
+                        <input type="text"  class="form-control mb-3"
+                            name="contrasenia" required>
                     </div>
                     <div class="col">
                         <select name="estatus" class="form-control mb-3" id="estatus">
@@ -48,7 +48,7 @@
                 <br>
                 <div class="row">
                     <div class="col-4">
-                        <h4>Rol</h4>
+                        <h4>Rol*</h4>
                     </div>
                     <div class="col-4">
                         <h4>Token</h4>
@@ -58,11 +58,11 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
-                            name="rol">
+                        <input type="text" onkeypress="return soloNumeros(event)" class="form-control mb-3"
+                            name="rol" required>
                     </div>
                     <div class="col-4">
-                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3"
+                        <input type="text"  class="form-control mb-3"
                             name="token">
                     </div>
                 </div>

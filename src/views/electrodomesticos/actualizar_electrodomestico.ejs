@@ -70,7 +70,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <input type="date" class="form-control mb-3" name="fecha_salida" value="<%=dataElectrodomestico["fecha_salida"]%>">
+                        <input type="date" class="form-control mb-3" name="fecha_salida" value="<%=dataElectrodomestico["fecha_salida"]%>" required>
                     </div>
                     <div class="col">
                         <select name="estado" id="estado" class="form-control mb-3">
@@ -128,4 +128,5 @@
                 </div>
         </form>
     </div>
+    <script type="text/javascript" src="/assets/js/apps.js"></script>
     <%- include("../comunes/components/footer-component") -%>

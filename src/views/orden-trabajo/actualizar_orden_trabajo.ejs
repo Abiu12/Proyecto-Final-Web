@@ -39,7 +39,7 @@
                             value="<%=recordsOrden["trabajo"]%>" required>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control mb-3" name="precio" value="<%=recordsOrden["precio"]%>" required>
+                        <input type="text" onkeypress="return soloNumeros(event);" class="form-control mb-3" name="precio" value="<%=recordsOrden["precio"]%>" required>
                     </div>
                 </div>
 
@@ -54,4 +54,5 @@
                 </div>
         </form>
     </div>
+    <script type="text/javascript" src="/assets/js/apps.js"></script>
     <%- include("../comunes/components/footer-component") -%>

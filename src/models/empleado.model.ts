@@ -19,11 +19,11 @@ EmpleadoModel.init(
     },
     primerApellido: {
       type: DataTypes.STRING(50),
-      allowNull: false,
+      
     },
     segundoApellido: {
       type:DataTypes.STRING(50),
-      allowNull: true,
+      
     },
     genero:{
       type: DataTypes.STRING(1),

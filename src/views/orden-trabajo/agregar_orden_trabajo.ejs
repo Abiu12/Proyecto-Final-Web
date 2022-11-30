@@ -36,11 +36,11 @@
 
         <div class="row">
             <div class="col">
-                <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="trabajo"
+                <input type="text"  class="form-control mb-3" name="trabajo"
                     required>
             </div>
             <div class="col">
-                <input type="text" class="form-control mb-3" name="precio" required>
+                <input type="text" onkeypress="return soloNumeros(event);" class="form-control mb-3" name="precio" required>
             </div>
         </div>
         <div class="row">
@@ -51,4 +51,5 @@
         </div>
     </form>
 </div>
+<script type="text/javascript" src="/assets/js/apps.js"></script>
   <%- include("../comunes/components/footer-component") -%>
