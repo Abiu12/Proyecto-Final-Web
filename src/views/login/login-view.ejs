@@ -2,36 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/loggin.css">
-    <title>Document</title>
+  <%- include("../comunes/components/headers-component") -%>
 </head>
 
 <body>
-    <%- include("banner") -%> 
-    <div class="row">
-        <div class="col s6">
-            <input type="text">
-            <input type="text">
-            <button class="btn-primary">loggear</button>
+
+  <div class="row">
+    <form class="col s12" method="post" action="/loggin/">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="correo" name="correo" type="text" class="validate">
+          <label for="correo">Correo de mexico</label>
         </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">grain</i>
+          <input id="contrasenia" name="contrasenia" type="password" class="validate">
+          <label for="contrasenia">Contraseña</label>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Entrar
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
+    <% if(error==1){ %>
+      <span>Credenciales incorrectas</span>
+    <% } %>
+  </div>
 
-        <h1>
-            <%=valorDeEjemplo %>
-        </h1>
-        <%if(numeroEjemplo>100){ %>
-            <h1>
-                Simon
-            </h1>
-            <% }else{ %>
-                <h5>Nel</h5>
-
-                <% } %>
-
-    </div>
-
+  <%- include("../comunes/components/footer-component") -%>
 </body>
 
 </html>
