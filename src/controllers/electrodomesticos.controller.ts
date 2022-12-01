@@ -8,7 +8,7 @@ export async function createElectrodomestico(req: Request, res: Response) {
   var fecha=String(date.getDate())+String(date.getMonth()+1)+String(date.getFullYear()).substring(2,4);
   var hora = String(date.getHours()) + String(date.getMinutes()) + String(date.getSeconds());
   const codigo_seguimiento = "E"+idCliente+fecha+hora;
-  const fecha_entrada= String(date.getDate())+"/"+String(date.getMonth()+1)+"/"+String(date.getFullYear());
+  const fecha_entrada= String(date.getFullYear())+"-"+String(date.getMonth()+1)+"-"+String(date.getDate());
   const {nombre, modelo, marca , fecha_salida, estado, garantia, observaciones } = req.body;
   await ElectrodomesticosModel.create({ codigo_seguimiento, nombre, modelo, marca, fecha_entrada, fecha_salida, estado, garantia, observaciones, idCliente:Number(idCliente) });
   res.redirect("/electrodomesticos/view/" + idCliente);

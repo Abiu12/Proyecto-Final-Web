@@ -47,9 +47,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/assets/js/main.js"></script>
     <script type="text/javascript" src="/assets/js/apps.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 
 
 </body>
+<script type="text/javascript">
+    $(document).ready( function () {
+    $('#dataTableClientes').DataTable(
+    {
+    language: {
+        search: "Buscar en tabla:",
+        lengthMenu:    "Mostrar _MENU_ elementos",
+        info: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+        paginate: {
+            first:      "Primero",
+            previous:   "Anterior",
+            next:       "Siguiente",
+            last:       "Último"
+        },
+        zeroRecords:    "Sin resultados",
+        
+    }}
+);
+} );
+</script>
 
 </html>
     
