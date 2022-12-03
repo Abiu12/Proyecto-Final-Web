@@ -22,30 +22,58 @@
       
 		<form>
 			<div class="alert alert-warning row">
-                <h1><br><%=electrodomestico.nombre%> <%=electrodomestico.modelo%> <%=electrodomestico.marca%> <br><br>  </h1>
-        <h2><br>Registrado a nombre de: <%=cliente.nombre%> <%=cliente.primerApellido%> <%=cliente.segundoApellido%> </h2>
-        <% if(orden!=null){ %> 
-        <h2><br>El trabajo es: <%= orden.trabajo%></h2>
-        <% } %> 
-        <% if(orden==null){ %> 
-            <h2><br>Sin trabajo registrado</h2>
-            <% } %> 
-        <h2><br>El estado de su electrodoméstico en el taller es: <%=electrodomestico.estado %> </h2>
-        <% if(electrodomestico.estado=="Terminado"){ %>
-            <h2><br>El costo de la reparación fué: $<%= orden.precio%></h2>
-            <h2><br>¡Usted ya puede pasar al taller por su electrodoméstico!</h2>
-        <% } %>
-		<h2 id="fecha"></h2> 
-		<script>
+				<h1><br>
+					<%=electrodomestico.nombre%>
+						<%=electrodomestico.modelo%>
+							<%=electrodomestico.marca%> <br><br>
+				</h1>
+				<h2><br>Registrado a nombre de: <%=cliente.nombre%>
+						<%=cliente.primerApellido%>
+							<%=cliente.segundoApellido%>
+				</h2>
+				<% if(orden!=null){ %>
+					<h2><br>El trabajo es: <%= orden.trabajo%>
+					</h2>
+					<% } %>
+						<% if(orden==null){ %>
+							<h2><br>Sin trabajo registrado</h2>
+							<% } %>
+								<h2><br>El estado de su electrodoméstico en el taller es: <%=electrodomestico.estado %>
+								</h2>
+								<% if(electrodomestico.estado=="Terminado" ){ %>
+									<h2><br>El costo de la reparación fué: $<%= orden.precio%>
+									</h2>
+									<h2><br>¡Usted ya puede pasar al taller por su electrodoméstico!</h2>
 			
-			let fechaSalida = moment('2022-12-07');
-			let dia=fechaSalida.format('dddd Do MMMM YYYY')
-			
-			document.getElementById('fecha').innerText = dia;
-		</script>
-		<!-- <h2><br>La fecha de salida es: <h2 id="fecha_format"><%=electrodomestico.fecha_salida%></h2></h2> -->
+									<%} else{ %>
+										<h2 id="fechaExpirada"></h2>
+										<h2>La fecha estimada de terminación del trabajo es:</h2>
+										<h2 id="fecha">
+											<%=electrodomestico.fecha_salida%>
+										</h2>
+										<script>
+											let fecha = document.getElementById('fecha').innerText;
+											let ahora = moment();
+											console.log(fecha);
+											moment.lang('es', {
+												months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
+												monthsShort: 'Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.'.split('_'),
+												weekdays: 'Domingo_Lunes_Martes_Miercoles_Jueves_Viernes_Sabado'.split('_'),
+												weekdaysShort: 'Dom._Lun._Mar._Mier._Jue._Vier._Sab.'.split('_'),
+												weekdaysMin: 'Do_Lu_Ma_Mi_Ju_Vi_Sa'.split('_')
+											}
+											);
+											fecha_convertida = moment(fecha).format('dddd Do MMMM YYYY');
+											document.getElementById('fecha').innerText = fecha_convertida;
+											resultado = ahora.diff(fecha, 'days');
+											console.log(resultado);
 
-      </div>
+											if (resultado > 0) {
+												document.getElementById('fechaExpirada').innerText = "Lo sentimos, su reparacion se ha retrasado!!!";
+											}
+										</script>
+										<% } %>
+			</div>
 		</form>
 		<div class="container"><a href="/seguimiento/view"><input class="button" type="button" value="Regresar"></a></div>
 	</div>
