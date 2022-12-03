@@ -1,58 +1,14 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <%- //include("comunes/headers") -%>
-        <title>
-
-        </title>
-</head>
-
-<body>
-    <div class="row">
-        <div class="col s12 m7">
-            <div class="card">
-                <div class="card-image">
-                    <img class="img-sm" src="assets/img/mario.png">
-                    <span class="card-title">Web</span>
-                </div>
-                <div class="card-content">
-                    <p>Ejemplo de configuracion EJS</p>
-                </div>
-                <div class="card-action">
-                    <button id="btnSaludar" class="waves-effect waves-light btn">Saludar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <%- //include("comunes/footer") -%>
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%- include("comunes/components/header-component") -%>
 </head>
+
 <body>
-    <button id="btnObtener">Obtener</button>
-    <!-- tabla dinamica con datos json -->
-    <table>
-        <thead>
-            <tr>
-                <td>Id</td>
-                <td>Status</td>
-                <td>Description</td>
-            </tr>
-        </thead>
-        <tbody id="data">
-            
-        </tbody>
-    </table>
-    <script src="/assets/js/main.js"></script>
+    <!-- aqui va el cuerpo -->
+
+    <%- include("comunes/components/footer-component") -%>
 </body>
+
 </html>
