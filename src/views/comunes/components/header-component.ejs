@@ -1,3 +1,4 @@
+<% if(user !== undefined ){ %> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,30 +45,38 @@
             <!-- Nav Item - Lateral -->
             <li class="nav-item">
                 <!-- if empleado -->
+                <% if(user.rol === "3333"){ %> 
                 <a class="nav-link" href="/clientes/view" data-toggle="" data-target="" aria-expanded=""
                     aria-controls="">
                     <i class="fas fa-users"></i>
                     <span style="font-size: 18px; font-weight: bold;">Clientes</span>
                 </a>
+                <% } %> 
                 <!-- tecnivo -->
+                <% if(user.rol === "2222"){ %> 
                 <a class="nav-link" href="/pendientes/view" data-toggle="" data-target="" aria-expanded=""
                     aria-controls="">
                     <i class="fas fa-users"></i>
                     <span style="font-size: 18px; font-weight: bold;">Pendientes</span>
                 </a>
+                <% } %> 
                 
                 <!-- tecnico y empleado -->
+                <% if(user.rol === "2222" || user.rol === "3333"){ %> 
                 <a class="nav-link" href="/reportes/view" data-toggle="" data-target="" aria-expanded=""
                     aria-controls="">
                     <i class="fas fa-users"></i>
                     <span style="font-size: 18px; font-weight: bold;">Reportes</span>
                 </a>
+                <% } %> 
                 <!-- if admin -->
+                <% if(user.rol === "1111"){ %> 
                 <a class="nav-link" href="/empleados/view" data-toggle="" data-target="" aria-expanded=""
                     aria-controls="">
                     <i class="fas fa-users"></i>
                     <span style="font-size: 18px; font-weight: bold;">Empleados</span>
                 </a>
+                <% } %> 
                 
             </li>
         </ul>
@@ -105,4 +114,7 @@
                         </li>
                     </ul>
                 </nav>
+                <% } else{%>
+                    <h1>La sesion no es valida</h1>
+                    <% }%>
                 <!-- End of Topbar -->
