@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const empleado_controller_1 = require("../controllers/empleado.controller");
+const empleadoRouter = (0, express_1.Router)();
+empleadoRouter.post("/create", empleado_controller_1.createEmpleado);
+empleadoRouter.post("/update/:idEmpleado", empleado_controller_1.updateEmpleado);
+empleadoRouter.get("/delete/:idEmpleado", empleado_controller_1.deleteEmpleado);
+empleadoRouter.get("/view", empleado_controller_1.viewEmpleados);
+empleadoRouter.get("/view/agregar_empleado", empleado_controller_1.viewAgregarEmpleado);
+empleadoRouter.get("/view/modificar_empleado/:idEmpleado", empleado_controller_1.viewFormEditEmpleado);
+empleadoRouter.get("/view/empleado_repetido", empleado_controller_1.viewEmpleadoRepetido);
+exports.default = empleadoRouter;

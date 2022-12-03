@@ -1,0 +1,99 @@
+<%- include("../comunes/components/header-component") -%>
+    <div class="container col-12">
+
+        <div class="row">
+            <div class="col">
+                <h1>Electrodomésticos</h1>
+                <h3>Cliente: <%=recordsCliente[0]["nombre"]%>
+                        <%=recordsCliente[0]["primerApellido"]%>
+                            <%=recordsCliente[0]["segundoApellido"]%>
+                </h3>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-9"></div>
+            <div class="col-1">
+                <a href="/electrodomesticos/view/agregar_electrodomestico/<%=recordsCliente[0]["idCliente"]%>"><input class="btn btn-secondary" type="button" value="Agregar electrodoméstico"></a>
+            </div>
+        </div>
+
+
+        <br>
+
+        <div class="row">
+            <div class="col-12 overflow-auto">
+                <table class="table ">
+                    <thead class="table-success table-striped">
+                        <tr>
+                            <th>Código de seguimiento</th>
+                            <th>Nombre</th>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Fecha entrada</th>
+                            <th>Fecha salida</th>
+                            <th>Estado</th>
+                            <th>Garantia</th>
+                            <th>Observaciones</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% for(var i=0; i<records.length ;i++){ %>
+                            <tr>
+                                <td>
+                                    <%=records[i]["codigo_seguimiento"] %>
+                                </td>
+                                <td>
+                                    <%=records[i]["nombre"] %>
+                                </td>
+                                <td>
+                                    <%=records[i]["modelo"] %>
+                                </td>
+                                <td>
+                                    <%=records[i]["marca"] %>
+                                </td>
+                                <td>
+                                    <%=records[i]["fecha_entrada"] %>
+                                </td>
+                                <td>
+                                    <%=records[i]["fecha_salida"] %>
+                                </td>
+                                <td>
+                                    <%=records[i]["estado"] %>
+                                </td>
+                                <td>
+                                    <%=records[i]["garantia"] %>
+                                </td>
+                                <td>
+                                    <%=records[i]["observaciones"] %>
+                                </td>
+
+                                <td>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="/electrodomesticos/view/modificar_electrodomestico/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %>" class="fas fa-pen"> </a>
+
+                                        </div>
+                                        <div class="col">
+                                            <a href="/electrodomesticos/delete/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %> "class="fas fa-trash-alt"></a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="/orden/view/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %> "class="fas fa-clipboard-list"></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div><!-- Fin de col-11 -->
+        </div><!-- Fin de Row -->
+
+
+
+    </div>
+
+    <%- include("../comunes/components/footer-component") -%>

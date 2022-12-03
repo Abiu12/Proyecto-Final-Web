@@ -1,0 +1,78 @@
+<%- include("../comunes/components/header-component") -%>
+    <div class="container col-12">
+        <h1>Clientes</h1>
+        
+        <div class="row">
+            <div class="col-10">
+                <br>
+                <input type="text" name="" id="buscar" placeholder="Buscar...">
+            </div>
+            <div class="col-1">
+                <a href="/clientes/view/agregar_cliente"><input class="btn btn-secondary" type="button" value="Agregar cliente"></a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    
+    <div class="col-md-12">
+        <table id="dataTableClientes" class="table table-striped">
+            <thead class="table-success table-striped ">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Primer apellido</th>
+                    <th>Segundo apellido</th>
+                    <th>Telefono</th>
+                    <th>Calle</th>
+                    <th>No. Casa Interior</th>
+                    <th>No. Casa Exterior</th>
+                    <th>Colonia</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody class="datos">
+                <% for(var i=0; i<records.length ;i++){ %>
+                    <tr>
+                        <td >
+                            <%=records[i]["nombre"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["primerApellido"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["segundoApellido"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["telefono"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["calle"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["noCasaInt"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["noCasaExt"] %>
+                        </td>
+                        <td>
+                            <%=records[i]["colonia"] %>
+                        </td>
+
+                        <td>
+                            <a class="fas	fa-pen" href="/clientes/view/actualizar_cliente/<%=records[i]["idCliente"]%>"  ></a>
+                            <a class="fas fa-trash-alt" href="/clientes/delete/<%=records[i]["idCliente"]%>"></a>
+                            <a class="fas fa-wrench" href="/electrodomesticos/view/<%=records[i]["idCliente"]%>"></a>
+                        </td>
+                    </tr>
+                    <% } %>
+
+
+            </tbody>
+        </table>
+
+    </div>
+    <script type="text/javascript" src="/assets/js/search.js"></script>
+    
+    <%- include("../comunes/components/footer-component") -%>

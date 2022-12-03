@@ -1,0 +1,20 @@
+.image {
+    position: relative;
+    width: 450px;
+    height: 250px;
+    top: 30px;
+    padding-left: 70px;
+}
+
+h3{
+    /* background: blue; */
+    /* background-color: blue; */
+}
+.title-black{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.ocultar{
+    display: none;
+}

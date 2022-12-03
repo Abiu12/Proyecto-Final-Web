@@ -2,7 +2,7 @@
   "name": "basic-ts",
   "version": "1.0.0",
   "description": "tec",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": ""
@@ -10,15 +10,23 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf dist",
-    "start": "npm run build && node dist/src/index.js",
-    "dev": "nodemon src/index.ts"
+    "start": "npm run build && npm run copy-files && node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "init": "npm install -D -s",
+    "copy-files":"npm run copy-views && npm run copy-public",
+    "copy-views":  "copyfiles -u 1 \"./src/views/**/*.ejs\" \"dist\"",
+    "copy-public":  "copyfiles -u 1 \"./src/public/**/*.*\" \"dist\""
   },
   "keywords": [],
   "author": "AdrianHernandezIslas",
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/ejs": "^3.1.1",
     "@types/express-session": "^1.17.5",
+    "@types/multer": "^1.4.7",
+    "@types/nodemailer": "^6.4.6",
+    "copyfiles": "^2.4.1",
     "nodemon": "^2.0.16",
     "rimraf": "^3.0.2",
     "ts-node": "^10.8.0"
@@ -32,7 +40,10 @@
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-session": "^1.17.3",
+    "http-status-codes": "^2.2.0",
     "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.8.0",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.20.0",
