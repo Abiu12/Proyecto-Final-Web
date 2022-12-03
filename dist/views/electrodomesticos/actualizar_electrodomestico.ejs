@@ -1,0 +1,125 @@
+<%- include("../comunes/components/header-component") -%>
+    <div class="container">
+        <h1>Actualizar electrodoméstico</h1>
+        <br>
+        <div class="row">
+            <div class="col-10">
+                <h3>Cliente: <%=recordsCliente["nombre"]%>
+                        <%=recordsCliente["apellidoPaterno"] %>
+                            <%=recordsCliente["apellidoMaterno"]%>
+                </h3>
+                <br>
+                <br>
+            </div>
+            <div class="col-2">
+                <h6>* Campos obligatorios</h6>
+            </div>
+        </div>
+
+        <form action="/electrodomesticos/update/<%=dataElectrodomestico["idCliente"]%>/<%=dataElectrodomestico["idElectrodomestico"]%>" method="POST">
+
+                <h2 class="title-black">Datos del electrodoméstico</h2>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <h4>Nombre*</h4>
+                    </div>
+                    <div class="col">
+                        <h4>Modelo*</h4>
+                    </div>
+                    <div class="col">
+                        <h4>Marca*</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="nombre" value="<%=dataElectrodomestico["nombre"]%>" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control mb-3" name="modelo" value="<%=dataElectrodomestico["modelo"]%>" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="marca" value="<%=dataElectrodomestico["marca"]%>" required>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <h4>Fecha de salida*</h4>
+                    </div>
+                    <div class="col">
+                        <h4>Estado*</h4>
+                    </div>
+                    <div class="col">
+                        <h4>Estado de garantia*</h4>
+                    </div>
+                    <div class="col">
+                        <h4>Observaciones*</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="date" class="form-control mb-3" name="fecha_salida" value="<%=dataElectrodomestico["fecha_salida"]%>" required>
+                    </div>
+                    <div class="col">
+                        <select name="estado" id="estado" class="form-control mb-3">
+                            <option value="En revisión" <% if(dataElectrodomestico["estado"]=="En revisión" ){%>
+                                <%="selected" %>
+                                    <% } %> >En revisión
+                            </option>
+                            <option value="En reparación" <% if(dataElectrodomestico["estado"]=="En reparación" ){%>
+                                <%="selected" %>
+                                    <% } %> >En reparación
+                            </option>
+                            <option value="Terminado" <% if(dataElectrodomestico["estado"]=="Terminado" ){%>
+                                <%="selected" %>
+                                    <% } %> >Terminado
+                            </option>
+                            <option value="Entregado" <% if(dataElectrodomestico["estado"]=="Entregado" ){%>
+                                <%="selected" %>
+                                    <% } %> >Entregado
+                            </option>
+                            <option value="No se trabajo" <% if(dataElectrodomestico["estado"]=="No se trabajo" ){%>
+                                <%="selected" %>
+                                    <% } %> >No se trabajó
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select name="garantia" id="garantia" class="form-control mb-3">
+                            <option value="Sin aplicar" <% if(dataElectrodomestico["garantia"]=="Sin aplicar" ){%>
+                                <%="selected" %>
+                                    <% } %> >Sin aplicar
+                            </option>
+                            <option value="Vigente" <% if(dataElectrodomestico["garantia"]=="Vigente" ){%>
+                                <%="selected" %>
+                                    <% } %> >Vigente
+                            </option>
+                            <option value="Vencida" <% if(dataElectrodomestico["garantia"]=="Vencida" ){%>
+                                <%="selected" %>
+                                    <% } %> >Vencida
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control mb-3" name="observaciones"
+                            value="<%=dataElectrodomestico["observaciones"]%>" required>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="row">
+                    <div class="col-9"></div>
+                    <div class="col">
+                        <button class="btn btn-secondary" type="submit">Actualizar electrodoméstico</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <%- include("../comunes/components/footer-component") -%>

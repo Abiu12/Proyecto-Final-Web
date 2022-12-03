@@ -1,0 +1,64 @@
+<%- include("../comunes/components/header-component") -%>
+    <!-- Begin Page Content -->
+    <div class="container">
+        <h1>Usuarios</h1>
+        <div class="row">
+            <div class="col-9"></div>
+            <div class="col-1">
+                <a href="/usuarios/view/agregar_usuario/<%=recordsEmpleado["idEmpleado"]%> "><input class="btn btn-secondary" type="button"
+                        value="Agregar usuario"></a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="col-md-12">
+        <table class="table">
+            <thead class="table-success table-striped">
+                <th>Correo</th>
+                <th>Contraseña</th>
+                <th>Estatus</th>
+                <th>Rol</th>
+                <th>Token restauración</th>
+                <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(var i=0; i<recordsUsuario.length ;i++){ %>
+                    <tr>
+                        <td>
+                            <%=recordsUsuario[i]["correo"] %>
+                        </td>
+                        <td>
+                            <%=recordsUsuario[i]["contrasenia"] %>
+                        </td>
+                        <td>
+                            <%=recordsUsuario[i]["estatus"] %>
+                        </td>
+                        <td>
+                            <%=recordsUsuario[i]["rol"] %>
+                        </td>
+                        <td>
+                            <%=recordsUsuario[i]["token_restauracion"] %>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="/usuarios/view/modificar_usuario/<%=recordsUsuario[i]["idEmpleado"]%>/<%=recordsUsuario[i]["idUsuario"]%>" class="fas fa-pen"> </a>
+
+                                </div>
+                                <div class="col">
+                                    <a href="/usuarios/delete/<%=recordsUsuario[i]["idEmpleado"]%>/<%=recordsUsuario[i]["idUsuario"]%>" class="fas fa-trash-alt"></a>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div> <!-- End table client -->
+
+    </div> <!-- End of Main Content-->
+    <%- include("../comunes/components/footer-component") -%>

@@ -1,0 +1,16 @@
+<!-- Archivo que se va a mostrar, incluye importaciones para utilizar mejor ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../comunes/components/headers-component") -%>
+</head>
+<body>
+    <%- include("../status/components/form-component")  -%> 
+    <!-- Como ocupamos datos en la tabla lo pasamos entre {} llega separado del controlador (data) -->
+    <%- include("../status/components/table-component",{records}) %>
+    <%- include("../comunes/components/footer-component") -%>
+    <!-- Js para las validaciones -->
+    <script src="/assets/js/form.js"></script>
+</body>
+
+</html>
