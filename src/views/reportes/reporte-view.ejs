@@ -2,7 +2,8 @@
     <% if(user.rol==="2222" || user.rol==="3333" ){ %>
     <%- include("../comunes/components/header-component") -%>
     <div>
-        Dinero entrante al taller en el ultimo mes
+        <h2> Dinero entrante al taller en el ultimo mes </h2>
+        <h2 id="totalDinero"></h2>
     </div>
 
     <div>
@@ -32,8 +33,27 @@
           }
         });
         let url ="/reporte/getData";
-        const data= fetch(url);
-        console.log(data);
+
+        fetch('/reporte/getData')
+        .then(response => response.json())
+        .then( function (data) {
+            console.log(data[0].precio);
+            let suma=0;
+            for (let i = 0; i < data.length; i++) {
+                suma += data[i].precio;
+            }
+            document.getElementById("totalDinero").innerText="$"+suma;
+
+        });
+        // let suma=0;
+
+        // const mostrar = (precio) =>{
+        //     precio.forEach(element => {
+        //         suma+= Number(element.precio);
+        //     });
+        // }
+        // 
+        
       </script>
 
 
