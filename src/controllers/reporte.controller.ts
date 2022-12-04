@@ -10,13 +10,7 @@ export async function getData(req: Request, res: Response) {
     attributes: ["precio"],
     raw: true,
   });
-
-  const electrodomesticos = await -ElectrodomesticosModel.findAll({
-    attributes: ["estado"],
-    raw: true,
-    where:  
-  });
-  res.status(200).json(orden);
+  res.status(200).json(ordenes);
 }
 
 

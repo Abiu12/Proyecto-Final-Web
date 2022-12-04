@@ -31,27 +31,6 @@ ElectrodomesticosModel.init(
       type: DataTypes.STRING(25),
       allowNull: false,
     },
-    fecha_entrada: {
-      type: DataTypes.STRING(15),
-      allowNull: false,
-    },
-    
-    fecha_salida: {
-      type: DataTypes.STRING(15),
-      allowNull: false,
-    },
-    estado:{
-      type: DataTypes.STRING(15),
-      allowNull: false,
-    },
-    garantia:{
-      type: DataTypes.STRING(15),
-      allowNull: false,
-    },
-    observaciones:{
-      type: DataTypes.STRING(250),
-      allowNull: false,
-    },
     idCliente: {
       type: DataTypes.INTEGER,
       allowNull: false,

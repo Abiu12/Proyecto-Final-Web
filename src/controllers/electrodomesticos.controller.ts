@@ -8,9 +8,8 @@ export async function createElectrodomestico(req: Request, res: Response) {
   var fecha=String(date.getDate())+String(date.getMonth()+1)+String(date.getFullYear()).substring(2,4);
   var hora = String(date.getHours()) + String(date.getMinutes()) + String(date.getSeconds());
   const codigo_seguimiento = "E"+idCliente+fecha+hora;
-  const fecha_entrada= String(date.getFullYear())+"-"+String(date.getMonth()+1)+"-"+String(date.getDate());
-  const {nombre, modelo, marca , fecha_salida, estado, garantia, observaciones } = req.body;
-  await ElectrodomesticosModel.create({ codigo_seguimiento, nombre, modelo, marca, fecha_entrada, fecha_salida, estado, garantia, observaciones, idCliente:Number(idCliente) });
+  const {nombre, modelo, marca ,  } = req.body;
+  await ElectrodomesticosModel.create({ codigo_seguimiento, nombre, modelo, marca, idCliente:Number(idCliente) });
   res.redirect("/electrodomesticos/view/" + idCliente);
 }
 export async function deleteElectrodomestico(req: Request, res: Response) {
@@ -26,12 +25,12 @@ export async function deleteElectrodomestico(req: Request, res: Response) {
 }
 export async function updateElectrodomestico(req: Request, res: Response) {
   const {idCliente,idElectrodomestico} = req.params;
-  const { codigo_seguimiento, nombre, modelo, marca, fecha_salida, estado, garantia, observaciones } = req.body; 
+  const { codigo_seguimiento, nombre, modelo, marca } = req.body; 
   const entity = await ElectrodomesticosModel.findOne({where:{
     idCliente,
     idElectrodomestico
   }}); 
-  entity?.update({ codigo_seguimiento, nombre, modelo, marca, fecha_salida, estado, garantia, observaciones }) 
+  entity?.update({ codigo_seguimiento, nombre, modelo, marca}) 
   res.redirect("/electrodomesticos/view/" + idCliente ); 
 }
 export async function viewElectrodomesticos(req: Request, res: Response) {

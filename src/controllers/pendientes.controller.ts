@@ -5,7 +5,7 @@ import { OrdenTrabajoModel } from "../models/orden.trabajo.model";
 
 export async function viewPendientes(req: Request, res: Response) {
   const { Op } = require("sequelize");
-  const recordsElectrodomestico = await ElectrodomesticosModel.findAll({
+  const recordsOrden = await OrdenTrabajoModel.findAll({
     where: {
       [Op.or]: [
         { estado: "En revisión" },
@@ -13,24 +13,22 @@ export async function viewPendientes(req: Request, res: Response) {
       ]
     }
   });
-  var electrodomestico = JSON.parse(JSON.stringify(recordsElectrodomestico));
-  console.log("Electrodomesticos");
-  
-  console.log(electrodomestico);
-  
+  var ordenes = JSON.parse(JSON.stringify(recordsOrden));
   const recordsCliente = [];
-  const recordOrdenTrabajo = [];
-  for (let index = 0; index < electrodomestico.length; index++) {
-     recordsCliente.push(await ClientesModel.findOne({ where: {idCliente:electrodomestico[index].idCliente}, raw: true })); 
-     recordOrdenTrabajo.push(await OrdenTrabajoModel.findOne({where:{idCliente:electrodomestico[index].idCliente,idElectrodomestico:electrodomestico[index].idElectrodomestico}, raw:true}));
+  const recordsElectrodomestico = [];
+  for (let index = 0; index < ordenes.length; index++) {
+     recordsCliente.push(await ClientesModel.findOne({ where: {idCliente:ordenes[index].idCliente}, raw: true })); 
+     recordsElectrodomestico.push(await ElectrodomesticosModel.findOne({where:{idCliente:ordenes[index].idCliente,idElectrodomestico:ordenes[index].idElectrodomestico}, raw:true}));
   }
-  const data = {recordsElectrodomestico,recordsCliente,recordOrdenTrabajo};
+  
+  
+  const data = {recordsOrden,recordsCliente,recordsElectrodomestico};
   res.render("pendientes/pendientes", data);
 }
 
-export async function updateEstadoElectrodomestico(req: Request, res: Response) {
+export async function updateEstadoOrden(req: Request, res: Response) {
   const {idCliente,idElectrodomestico,statusElectrodomestico} =req.params;
-  const entity = await ElectrodomesticosModel.findOne({where:{
+  const entity = await OrdenTrabajoModel.findOne({where:{
     idCliente,
     idElectrodomestico
   }});

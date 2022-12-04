@@ -28,10 +28,6 @@ export async function readElectrodomestico(req: Request, res: Response) {
     }});
     const orden = JSON.parse(JSON.stringify(entityOrden));
     const data ={electrodomestico,cliente,orden};
-    console.log("Cliente");
-    console.log(cliente);
-    console.log("orden");
-    console.log(orden);
     res.render("consulta-electrodomestico/status-electrodomestico",data);
   }
   else{
