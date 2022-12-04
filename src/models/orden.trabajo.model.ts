@@ -1,7 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../database/database.config";
 import OrdenTrabajoType from "../types/orden.trabajo.type";
-import { ElectrodomesticosModel } from "./electrodomesticos.model";
 
 
 export class OrdenTrabajoModel extends Model<OrdenTrabajoType> {}
@@ -21,7 +20,7 @@ OrdenTrabajoModel.init(
       allowNull: false,
     },
     precio: {
-      type: DataTypes.STRING(150),
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     idCliente: {
