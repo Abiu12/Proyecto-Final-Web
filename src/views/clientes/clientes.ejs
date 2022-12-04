@@ -61,7 +61,7 @@
 
                         <td>
                             <a class="fas	fa-pen" href="/clientes/view/actualizar_cliente/<%=records[i]["idCliente"]%>"  ></a>
-                            <a class="fas fa-trash-alt" href="/clientes/delete/<%=records[i]["idCliente"]%>"></a>
+                            <a class="fas fa-trash-alt"  onclick="return ConfirmDeleteElectro();" href="/clientes/delete/<%=records[i]["idCliente"]%>"></a>
                             <a class="fas fa-wrench" href="/electrodomesticos/view/<%=records[i]["idCliente"]%>"></a>
                         </td>
                     </tr>

@@ -60,7 +60,7 @@
 
                                         </div>
                                         <div class="col">
-                                            <a href="/electrodomesticos/delete/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %> "class="fas fa-trash-alt"></a>
+                                            <a onclick="return ConfirmDeleteElectro();" href="/electrodomesticos/delete/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %> "class="fas fa-trash-alt"></a>
                                         </div>
                                         <div class="col">
                                             <a href="/orden/view/<%=records[i]["idCliente"] %>/<%=records[i]["idElectrodomestico"] %> "class="fas fa-clipboard-list"></a>

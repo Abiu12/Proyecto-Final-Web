@@ -1,37 +1,39 @@
 <% if(user !== undefined){ %>
     <% if(user.rol==="2222" || user.rol==="3333" ){ %>
     <%- include("../comunes/components/header-component") -%>
-    <div>
-        <h2> Dinero entrante al taller en el ultimo mes </h2>
+    <div class="container">
+      <div>
+        <h2> Dinero entrante </h2>
         <h2 id="totalDinero"></h2>
     </div>
 
     <div>
-        <canvas id="myChart" width="50px" height="50px"></canvas>
+        <canvas id="myChart" style="position: relative; height: 40vh; width: 80vw;"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const ctx = document.getElementById('myChart');
-        
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 5
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
+        var ctx = document.getElementById('myChart')
+        var myChart = new Chart(ctx, {
+            type:'line',
+            data:{
+                datasets: [{
+                    label: 'Linea de ingreso',
+                    backgroundColor: ['#6bf1ab','#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
+                    borderColor: ['black'],
+                    borderWidth:1
+                }]
+            },
+            options:{
+                scales:{
+                    y:{
+                        beginAtZero:true
+                    }
+                }
             }
-          }
-        });
+        })
+        
+
         let url ="/reporte/getData";
 
         fetch('/reporte/getData')
@@ -44,18 +46,21 @@
             }
             document.getElementById("totalDinero").innerText="$"+suma;
 
-        });
-        // let suma=0;
+            data.forEach(element => {
+                myChart.data['labels'].push(element.fecha_salida)
+                myChart.data['datasets'][0].data.push(element.precio)
+                myChart.update()
+            });
+          console.log(myChart.data);
 
-        // const mostrar = (precio) =>{
-        //     precio.forEach(element => {
-        //         suma+= Number(element.precio);
-        //     });
-        // }
-        // 
+        });
+     
         
       </script>
 
+
+    </div>
+    
 
     <%- include("../comunes/components/footer-component") -%>
     <% } else { %>
