@@ -1,3 +1,4 @@
+<% if(user !== undefined && user.rol === "1111" ){ %> 
 <%- include("../comunes/components/header-component") -%>
     <!-- Begin Page Content -->
     <div class="container col-12">
@@ -64,3 +65,6 @@
 
     </div> <!-- End of Main Content-->
     <%- include("../comunes/components/footer-component") -%>
+    <% } else { %>
+        <%- include("../comunes/components/error-sesion") -%>
+       <% } %> 

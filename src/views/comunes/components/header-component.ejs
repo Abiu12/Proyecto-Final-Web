@@ -1,4 +1,4 @@
-<% if(user !== undefined ){ %> 
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +63,7 @@
                 
                 <!-- tecnico y empleado -->
                 <% if(user.rol === "2222" || user.rol === "3333"){ %> 
-                <a class="nav-link" href="/reportes/view" data-toggle="" data-target="" aria-expanded=""
+                <a class="nav-link" href="/reporte/view" data-toggle="" data-target="" aria-expanded=""
                     aria-controls="">
                     <i class="fas fa-users"></i>
                     <span style="font-size: 18px; font-weight: bold;">Reportes</span>
@@ -114,7 +114,5 @@
                         </li>
                     </ul>
                 </nav>
-                <% } else{%>
-                    <h1>La sesion no es valida</h1>
-                    <% }%>
+
                 <!-- End of Topbar -->

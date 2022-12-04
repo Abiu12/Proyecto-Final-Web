@@ -1,7 +1,5 @@
+<% if(user !== undefined && user.rol === "3333" ){ %> 
 <%- include("../comunes/components/header-component") -%>
-
-
-
     <div class="container col-5 ">
         <div class="alert alert-danger ">
             <div class="row">
@@ -23,3 +21,6 @@
 
 
         <%- include("../comunes/components/footer-component") -%>
+        <% } else { %>
+            <%- include("../comunes/components/error-sesion") -%>
+           <% } %> 

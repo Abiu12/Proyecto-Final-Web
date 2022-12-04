@@ -15,6 +15,8 @@ import pendientesRouter from "./routes/pendientes.route";
 import ordenRouter from "./routes/orden.trabajo.route";
 import seguimiento from "./routes/seguimiento.route";
 import logginRouter from "./routes/loggin.route";
+import reporteRouter from "./routes/reporte.route";
+
 const app: Application = express();
 
 
@@ -43,6 +45,7 @@ app.use("/electrodomesticos",electrodomesticosRouter);
 app.use("/orden",ordenRouter);
 app.use("/pendientes",pendientesRouter);
 app.use("/seguimiento",seguimiento);
+app.use("/reporte",reporteRouter);
 
 
 

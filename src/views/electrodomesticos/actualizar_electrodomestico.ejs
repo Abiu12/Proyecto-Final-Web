@@ -1,3 +1,4 @@
+<% if(user !== undefined && user.rol === "3333" ){ %> 
 <%- include("../comunes/components/header-component") -%>
     <div class="container">
         <h1>Actualizar electrodoméstico</h1>
@@ -123,3 +124,6 @@
         </form>
     </div>
     <%- include("../comunes/components/footer-component") -%>
+    <% } else { %>
+        <%- include("../comunes/components/error-sesion") -%>
+       <% } %> 

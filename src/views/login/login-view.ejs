@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
 
-<head>
-  <%- include("../comunes/components/headers-component") -%>
-</head>
+		<title>Iniciar sesión</title>
+		<link href="/assets/css/main.css" rel="stylesheet" type="text/css" />
+		<!-- Custom fonts for this template-->
+		<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+			rel="stylesheet"
+		/>
 
-<body>
+		<!-- Custom styles for this template-->
+		<link href="/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+	</head>
 
-  <div class="row">
-    <form class="col s12" method="post" action="/api/v1/loggin/">
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="correo" name="correo" type="text" class="validate">
-          <label for="correo">Correo de mexico</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">grain</i>
-          <input id="contrasenia" name="contrasenia" type="password" class="validate">
-          <label for="contrasenia">Contraseña</label>
-        </div>
-      </div>
-      <div class="row">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Entrar
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
-    </form>
-    <% if(error==1){ %>
-      <span>Credenciales incorrectas</span>
-    <% } %>
-  </div>
-
-  <%- include("../comunes/components/footer-component") -%>
-</body>
-
+	<body class="bg-gradient-primary">
+		<div class="container">
+			<!-- Outer Row -->
+			<div class="row justify-content-center">
+				<div class="col-xl-10 col-lg-12 col-md-9">
+					<div class="card o-hidden border-0 shadow-lg my-5">
+						<div class="card-body p-0">
+							<!-- Nested Row within Card Body -->
+							<div class="row">
+								<div class="">
+								<img class="image" src="/assets/img/login2.jpg" alt="Servicio de lavadoras">
+								</div>
+								<div class="col-lg-6">
+									<div class="p-5">
+										<div class="text-center">
+											<h1 class="h4 text-gray-900 mb-4">¡Bienvenido al sistema!</h1>
+										</div>
+										<form class="user" action="/api/v1/loggin" method="POST">
+											<div class="form-group">
+												<input type="text" class="form-control form-control-user" id="correo" name="correo" placeholder="Nombre de usuario" />
+											</div>
+											<div class="form-group">
+												<input type="password" class="form-control form-control-user" id="contrasenia" name="contrasenia" placeholder="Contraseña" />
+											</div>
+											<div class="form-group"></div>
+											<!-- <a href="index.html" class="btn btn-primary btn-user btn-block"> Login </a> -->
+											<p class="center"><input class="btn btn-primary btn-user btn-block" type="submit" value="Iniciar Sesión"></p>
+										</form>
+										<hr />
+                    <% if(error==1){ %>
+                      <span>Credenciales incorrectas</span>
+                    <% } %>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

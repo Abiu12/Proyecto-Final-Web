@@ -1,16 +1,7 @@
+<% if(user !== undefined && user.rol === "3333" ){ %> 
 <%- include("../comunes/components/header-component") -%>
     <div class="container col-12">
         <h1>Clientes</h1>
-        
-        <div class="row">
-            <div class="col-10">
-                <br>
-                <input type="text" name="" id="buscar" placeholder="Buscar...">
-            </div>
-            <div class="col-1">
-                <a href="/clientes/view/agregar_cliente"><input class="btn btn-secondary" type="button" value="Agregar cliente"></a>
-            </div>
-        </div>
     </div>
 
     <br>
@@ -67,8 +58,6 @@
                         </td>
                     </tr>
                     <% } %>
-
-
             </tbody>
         </table>
 
@@ -76,3 +65,7 @@
     <script type="text/javascript" src="/assets/js/search.js"></script>
     
     <%- include("../comunes/components/footer-component") -%>
+
+    <% } else { %>
+        <%- include("../comunes/components/error-sesion") -%>
+       <% } %> 
