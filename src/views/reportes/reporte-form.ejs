@@ -1,0 +1,25 @@
+<% if(user !== undefined){ %>
+    <% if(user.rol==="2222" || user.rol==="3333" ){ %>
+    <%- include("../comunes/components/header-component") -%>
+    <div class="container">
+      <div>
+        <h2> Generación de reportes </h2>
+    </div>
+        <h2 id="totalDinero" ></h2>
+        <form action="/reporte/view/fecha" method="post">
+            <label for="start">Fecha de inicio:</label>
+        
+            <input type="date" id="start" name="start" value="2022-01-01" min="2022-01-01" max="2022-12-31">
+        
+            <label for="start">Fecha final:</label>
+        
+            <input type="date" id="end" name="end" value="2022-12-01" min="2022-01-01" max="2022-12-31">
+            <input class="btn btn-secondary" type="submit" value="Realizar reporte">
+            
+        </form>
+    <%- include("../comunes/components/footer-component") -%>
+    <% } else { %>
+        <%- include("../comunes/components/error-sesion") -%>
+        <% } } else { %>
+            <%- include("../comunes/components/error-sesion") -%>
+                <% } %>

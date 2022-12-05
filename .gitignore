@@ -4,4 +4,3 @@
 *.zip
 .env
 package-lock.json
-#relacion_roles.txtc

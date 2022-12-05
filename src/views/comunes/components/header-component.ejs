@@ -65,7 +65,7 @@
                 <% if(user.rol === "2222" || user.rol === "3333"){ %> 
                 <a class="nav-link" href="/reporte/view" data-toggle="" data-target="" aria-expanded=""
                     aria-controls="">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-file-pdf"></i>
                     <span style="font-size: 18px; font-weight: bold;">Reportes</span>
                 </a>
                 <% } %> 
@@ -96,9 +96,21 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <% if(user.rol === "1111"){ %> 
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                     Admin
                                 </span>
+                                <% } %> 
+                                <% if(user.rol === "2222"){ %> 
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                        Técnico
+                                    </span>
+                                <% } %> 
+                                <% if(user.rol === "3333"){ %> 
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                        Empleado
+                                    </span>
+                                <% } %> 
                                 <img class="img-profile rounded-circle" src="/assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->

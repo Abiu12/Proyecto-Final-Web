@@ -9,6 +9,12 @@ export async function createUsuario(req: Request, res: Response) {
   await UsuarioModel.create({idEmpleado:Number(idEmpleado),correo, contrasenia:contraseniaHash, estatus, rol, token_restauracion:token});
   res.redirect("/usuarios/view/"+idEmpleado);
 }
+export async function createCredencialesAdmin(req: Request, res: Response) {
+  await EmpleadoModel.create({idEmpleado: 0,nombre:"Abiu",primerApellido:"Franco",segundoApellido:"Matias",genero:"H"});
+  const contraseniaHash=hashPassword("admin");
+  await UsuarioModel.create({idEmpleado: 0,correo:"admin", contrasenia:contraseniaHash, estatus:"A", rol:"1111", token_restauracion:"12345"});
+  res.send("creado");
+}
 export async function updateUsuario(req: Request, res: Response) { 
   const {idEmpleado,idUsuario} = req.params;
   const {correo, contrasenia, estatus, rol, token} = req.body; 

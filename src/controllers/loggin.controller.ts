@@ -20,24 +20,10 @@ export async function logginUsuario(req: Request, res: Response) {
       const contraseniaUsuario = usuarioResponse.getDataValue("contrasenia");
       if (isValidPassword(contrasenia, contraseniaUsuario)) {
         const user = usuarioResponse.toJSON();
-        //delete user.contrasenia;
         req.session.user = user;
-        //return res.status(StatusCodes.OK).json(user);
         return res.redirect("/");
-      }
-      if(correo=="admin" && contrasenia=="admin"){
-        const user = usuarioResponse.toJSON();
-        //delete user.contrasenia;
-        req.session.user = user;
-        //return res.status(StatusCodes.OK).json(user);
-        return res.redirect("/");
-      
       }
     }
-    /**Para la primera vez */
-
-    
-
     res.redirect("/api/v1/loggin/signin?error=1");
   } catch (error) {
     res.send("error");

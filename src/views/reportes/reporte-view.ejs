@@ -3,10 +3,12 @@
     <%- include("../comunes/components/header-component") -%>
     <div class="container">
       <div>
-        <h2> Dinero entrante </h2>
-        <h2 id="totalDinero"></h2>
+         
+        <h2> Reporte de ganancias brutas del periodo <%=fechaInicio%> al <%=fechaFinal%></h2>
     </div>
-
+        <h3> Dinero entrante </h3>
+        <h2 id="totalDinero" ></h2>
+        
     <div>
         <canvas id="myChart" style="position: relative; height: 40vh; width: 80vw;"></canvas>
     </div>
@@ -58,7 +60,7 @@
         
       </script>
 
-
+        <a class="btn btn-secondary" href="/reporte/view/">Regresar</a>
     </div>
     
 
