@@ -17,10 +17,8 @@
         <table class="table">
             <thead class="table-success table-striped">
                 <th>Correo</th>
-                <th>Contraseña</th>
                 <th>Estatus</th>
                 <th>Rol</th>
-                <th>Token restauración</th>
                 <th>Acciones</th>
                 </tr>
             </thead>
@@ -32,16 +30,23 @@
                             <%=recordsUsuario[i]["correo"] %>
                         </td>
                         <td>
-                            <%=recordsUsuario[i]["contrasenia"] %>
+                            <% if(recordsUsuario[i]["estatus"]=="A"){  %> 
+                                Activo
+                            <%}%>
+                            <% if(recordsUsuario[i]["estatus"]=="I"){  %> 
+                                Inactivo
+                            <%}%>
                         </td>
                         <td>
-                            <%=recordsUsuario[i]["estatus"] %>
-                        </td>
-                        <td>
-                            <%=recordsUsuario[i]["rol"] %>
-                        </td>
-                        <td>
-                            <%=recordsUsuario[i]["token_restauracion"] %>
+                            <%if(recordsUsuario[i]["rol"]=="1111"){  %> 
+                                Administrador
+                            <%}%>
+                            <%if(recordsUsuario[i]["rol"]=="2222"){  %> 
+                                Técnico con todos los permisos
+                            <%}%>
+                            <%if(recordsUsuario[i]["rol"]=="3333"){  %> 
+                                Empleado con todos los permisos
+                            <%}%>
                         </td>
                         <td>
                             <div class="row">

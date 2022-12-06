@@ -26,7 +26,7 @@ export async function getData(req: Request, res: Response) {
 	const ordenes = await OrdenTrabajoModel.findAll({
 		attributes: ["precio", "fecha_salida"],
 		where: {
-			estado: "Entregado",
+			estado: "Trabajo cobrado",
 			fecha_salida: { [Op.between]: [startedDate, endDate] },
 		},
 		order: [["fecha_salida", "ASC"]],

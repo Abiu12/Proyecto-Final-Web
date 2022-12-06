@@ -41,7 +41,7 @@
                     <div class="col">
                         <select name="estatus" class="form-control mb-3" id="estatus">
                             <option value="A">Activo</option>
-                            <option value="D">Desactivo</option>
+                            <option value="I">Inactivo</option>
                         </select>
                     </div>
                 </div>
@@ -51,21 +51,18 @@
                     <div class="col-4">
                         <h4>Rol*</h4>
                     </div>
-                    <div class="col-4">
-                        <h4>Token</h4>
-                    </div>
 
                 </div>
 
                 <div class="row">
                     <div class="col-4">
-                        <input type="text" onkeypress="return soloNumeros(event)" class="form-control mb-3"
-                            name="rol" required>
+                        <select name="rol" id="rol" class="form-control mb-3">
+                            <option value="1111">Administrador</option>
+                            <option value="2222">Técnico</option>
+                            <option value="3333">Empleado</option>
+                        </select>
                     </div>
-                    <div class="col-4">
-                        <input type="text"  class="form-control mb-3"
-                            name="token">
-                    </div>
+                    
                 </div>
                 <br>
                 <br>

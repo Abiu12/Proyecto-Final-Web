@@ -90,6 +90,11 @@
                                     <h7>Acción a realizar</h7>
                                     <br>
                                     <br>
+                                    <% if(recordsOrden[i]["estado"]=="En espera"){ %> 
+                                        <form action="/pendientes/status/<%=recordsOrden[i]["idCliente"]%>/<%=recordsOrden[i]["idElectrodomestico"]%>/En revisión" method="post">
+                                            <button class="btn btn-secondary" type="submit">En revisión</button>
+                                        </form>
+                                            <% } %>
                                     
                                         <% if(recordsOrden[i]["estado"]=="En revisión"){ %> 
                                         <form action="/pendientes/status/<%=recordsOrden[i]["idCliente"]%>/<%=recordsOrden[i]["idElectrodomestico"]%>/En reparación" method="post">

@@ -11,9 +11,9 @@ export const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
   dialect: DB_DIALECT,
   dialectOptions: {
     encrypt: true,
-    ssl: {
-      rejectUnauthorized: false,
-    },
+    // ssl: {
+    //   rejectUnauthorized: false,
+    // },
   },
   logging:false
 });

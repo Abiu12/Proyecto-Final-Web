@@ -1,5 +1,6 @@
 export default interface ClienteType {
   idCliente?: number;
+  correo?:string;
   nombre?: string;
   primerApellido?: string;
   segundoApellido?: string;

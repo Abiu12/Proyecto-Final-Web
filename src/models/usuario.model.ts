@@ -36,10 +36,6 @@ UsuarioModel.init(
       allowNull: false,
       defaultValue: "1111"
     },
-    token_restauracion: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
   },
   {
     sequelize,

@@ -14,6 +14,11 @@ ClientesModel.init(
       allowNull: false,
       autoIncrement:true 
     },
+    correo:{
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+
     nombre: {
       type: DataTypes.STRING(25),
       allowNull: false,
