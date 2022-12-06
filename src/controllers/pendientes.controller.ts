@@ -9,7 +9,8 @@ export async function viewPendientes(req: Request, res: Response) {
     where: {
       [Op.or]: [
         { estado: "En revisión" },
-        { estado: "En reparación" }
+        { estado: "En reparación" },
+        { estado: "En espera" }
       ]
     }
   });
@@ -20,8 +21,6 @@ export async function viewPendientes(req: Request, res: Response) {
      recordsCliente.push(await ClientesModel.findOne({ where: {idCliente:ordenes[index].idCliente}, raw: true })); 
      recordsElectrodomestico.push(await ElectrodomesticosModel.findOne({where:{idCliente:ordenes[index].idCliente,idElectrodomestico:ordenes[index].idElectrodomestico}, raw:true}));
   }
-  
-  
   const data = {recordsOrden,recordsCliente,recordsElectrodomestico};
   res.render("pendientes/pendientes", data);
 }
@@ -32,7 +31,22 @@ export async function updateEstadoOrden(req: Request, res: Response) {
     idCliente,
     idElectrodomestico
   }});
-  entity?.update({ estado:statusElectrodomestico})
+  entity?.update({ estado:statusElectrodomestico});
+  const electrodomestico = await ElectrodomesticosModel.findOne({
+    where: {
+      idCliente,
+      idElectrodomestico
+    }
+  });
+  if(statusElectrodomestico=="Terminado"){
+    electrodomestico?.update({ estado:"Reparado" });
+  }
+  else if (statusElectrodomestico != "En espera") {
+    electrodomestico?.update({ estado:"Trabajando" });
+  }
+  if (statusElectrodomestico == "En espera") {
+    electrodomestico?.update({ estado:"Recibido" });
+  }
   res.redirect("/pendientes/view"); 
 }
 

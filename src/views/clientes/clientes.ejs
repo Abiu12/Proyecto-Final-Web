@@ -19,6 +19,7 @@
         <table id="dataTableClientes" class="table table-striped">
             <thead class="table-success table-striped ">
                 <tr>
+                    <th>Correo</th>
                     <th>Nombre</th>
                     <th>Primer apellido</th>
                     <th>Segundo apellido</th>
@@ -34,6 +35,9 @@
             <tbody class="datos">
                 <% for(var i=0; i<records.length ;i++){ %>
                     <tr>
+                        <td >
+                            <%=records[i]["correo"] %>
+                        </td>
                         <td >
                             <%=records[i]["nombre"] %>
                         </td>

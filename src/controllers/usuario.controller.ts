@@ -4,26 +4,26 @@ import { UsuarioModel } from "../models/usuario.model";
 import {hashPassword,isValidPassword,generatePassword} from "../libraries/bycript.library";
 export async function createUsuario(req: Request, res: Response) {
   const {idEmpleado} = req.params;
-  const {correo, contrasenia, estatus, rol, token} = req.body;
+  const {correo, contrasenia, estatus, rol} = req.body;
   const contraseniaHash=hashPassword(contrasenia);
-  await UsuarioModel.create({idEmpleado:Number(idEmpleado),correo, contrasenia:contraseniaHash, estatus, rol, token_restauracion:token});
+  await UsuarioModel.create({idEmpleado:Number(idEmpleado),correo, contrasenia:contraseniaHash, estatus, rol});
   res.redirect("/usuarios/view/"+idEmpleado);
 }
 export async function createCredencialesAdmin(req: Request, res: Response) {
   await EmpleadoModel.create({idEmpleado: 0,nombre:"Abiu",primerApellido:"Franco",segundoApellido:"Matias",genero:"H"});
   const contraseniaHash=hashPassword("admin");
-  await UsuarioModel.create({idEmpleado: 0,correo:"admin", contrasenia:contraseniaHash, estatus:"A", rol:"1111", token_restauracion:"12345"});
+  await UsuarioModel.create({idEmpleado: 0,correo:"admin", contrasenia:contraseniaHash, estatus:"A", rol:"1111"});
   res.send("creado");
 }
 export async function updateUsuario(req: Request, res: Response) { 
   const {idEmpleado,idUsuario} = req.params;
-  const {correo, contrasenia, estatus, rol, token} = req.body; 
+  const {correo, contrasenia, estatus, rol} = req.body; 
   const contraseniaHash=hashPassword(contrasenia);
   const entity = await UsuarioModel.findOne({where:{
     idEmpleado,
     idUsuario
   }}); 
-  entity?.update({idEmpleado:Number(idEmpleado),correo, contrasenia:contraseniaHash, estatus, rol, token_restauracion:token}) /** ? es por si viene un null */
+  entity?.update({idEmpleado:Number(idEmpleado),correo, contrasenia:contraseniaHash, estatus, rol}) /** ? es por si viene un null */
   res.redirect("/usuarios/view/"+idEmpleado); 
 }
 export async function deleteUsuario(req: Request, res: Response) {

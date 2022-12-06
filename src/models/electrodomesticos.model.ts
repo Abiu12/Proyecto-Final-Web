@@ -31,6 +31,10 @@ ElectrodomesticosModel.init(
       type: DataTypes.STRING(25),
       allowNull: false,
     },
+    estado: {
+      type: DataTypes.STRING(25),
+      allowNull: false,
+    },
     idCliente: {
       type: DataTypes.INTEGER,
       allowNull: false,

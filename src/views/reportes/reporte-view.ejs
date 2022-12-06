@@ -15,6 +15,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        var ordenesFiltradas= [];
+        
         var ctx = document.getElementById('myChart')
         var myChart = new Chart(ctx, {
             type:'line',
@@ -41,22 +43,47 @@
         fetch('/reporte/getData')
         .then(response => response.json())
         .then( function (data) {
+           
             console.log(data[0].precio);
             let suma=0;
+            
             for (let i = 0; i < data.length; i++) {
                 suma += data[i].precio;
             }
             document.getElementById("totalDinero").innerText="$"+suma;
+            var indexAux=-1;
+            for (let i = 0; i < data.length; i++) {
+                if (i==0) {
+                    ordenesFiltradas.push({fecha_salida:data[i].fecha_salida,precio: data[i].precio});
+                }
+                else{
+                    var fecha=data[i].fecha_salida;
+                    //Buscamos fecha por si se repite
+                    for (let j = 0; j < ordenesFiltradas.length; j++) {
+                        if (ordenesFiltradas[j].fecha_salida==fecha) {
+                            indexAux=j;
+                            break;
+                        }
+                    }
+                    if (indexAux!=-1) {
+                        ordenesFiltradas[indexAux].precio+=data[i].precio;
+                    }
+                    else{
+                        ordenesFiltradas.push({fecha_salida:data[i].fecha_salida,precio: data[i].precio});
+                    }
+                    indexAux=-1;
+                }
+            }
 
-            data.forEach(element => {
+            
+            ordenesFiltradas.forEach(element => {
                 myChart.data['labels'].push(element.fecha_salida)
                 myChart.data['datasets'][0].data.push(element.precio)
                 myChart.update()
             });
           console.log(myChart.data);
-
         });
-     
+        
         
       </script>
 

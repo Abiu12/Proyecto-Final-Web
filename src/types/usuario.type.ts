@@ -5,5 +5,4 @@ export default interface UsuarioType {
     contrasenia: string;
     estatus?: string;
     rol?: string;
-    token_restauracion?: string;
 }

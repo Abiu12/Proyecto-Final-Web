@@ -19,6 +19,9 @@
                 <br>
                 <div class="row">
                     <div class="col">
+                        <h4>Correo*</h4>
+                    </div>
+                    <div class="col">
                         <h4>Nombre*</h4>
                     </div>
                     <div class="col">
@@ -33,6 +36,10 @@
                 </div>
 
                 <div class="row">
+                    <div class="col">
+                        <input type="text"  class="form-control mb-3" name="correo"
+                        value="<%=correo%>" required>
+                    </div>
                     <div class="col">
                         <input type="text" onkeypress="return soloLetras(event)" class="form-control mb-3" name="nombre"
                             value="<%=nombre%>" required>

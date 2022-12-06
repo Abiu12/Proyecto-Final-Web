@@ -6,9 +6,9 @@ import { OrdenTrabajoModel } from "../models/orden.trabajo.model";
 export async function createOrdenTrabajo(req: Request, res: Response) {
   const {idCliente,idElectrodomestico} = req.params;
   var date = new Date();
-  const {trabajo, precio, fecha_salida, estado, garantia, observaciones} = req.body;
+  const {trabajo, precio, fecha_salida, garantia, observaciones} = req.body;
   const fecha_entrada= String(date.getFullYear())+"-"+String(date.getMonth()+1)+"-"+String(date.getDate());
-  await OrdenTrabajoModel.create({ trabajo, precio,fecha_entrada,fecha_salida, estado, garantia, observaciones, idCliente:Number(idCliente),idElectrodomestico:Number(idElectrodomestico) });
+  await OrdenTrabajoModel.create({ trabajo, precio,fecha_entrada,fecha_salida, estado:"En espera", garantia, observaciones, idCliente:Number(idCliente),idElectrodomestico:Number(idElectrodomestico) });
   res.redirect("/orden/view/"+ idCliente+"/"+idElectrodomestico);
 }
 export async function deleteOrdenTrabajo(req: Request, res: Response) {
@@ -30,7 +30,21 @@ export async function updateOrdenTrabajo(req: Request, res: Response) {
     idCliente,
     idElectrodomestico
   }}); 
-  entity?.update({ trabajo, precio, fecha_salida, estado, garantia, observaciones  });
+   entity?.update({ trabajo, precio, fecha_salida, estado, garantia, observaciones });
+   
+  const electrodomestico = await ElectrodomesticosModel.findOne({
+    where: {
+      idCliente,
+      idElectrodomestico
+    }
+  });
+  if (estado != "En espera") {
+    electrodomestico?.update({ estado:"Trabajando" });
+  }
+  if (estado == "En espera") {
+    electrodomestico?.update({ estado:"Recibido" });
+  }
+  
   res.redirect("/orden/view/"+ idCliente+"/"+idElectrodomestico); 
 }
 export async function viewOrdenTrabajo(req: Request, res: Response) {

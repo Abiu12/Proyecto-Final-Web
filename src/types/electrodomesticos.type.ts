@@ -4,5 +4,6 @@ export default interface ElectrodomesticosType {
   nombre?: string;
   modelo?: string;
   marca?: string;
+  estado?:string
   idCliente?:number;
 }
