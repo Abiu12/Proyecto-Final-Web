@@ -10,9 +10,7 @@ export async function createCliente(req: Request, res: Response) {
   const { correo,nombre, primerApellido, segundoApellido, telefono, calle, noCasaInt, noCasaExt, colonia } = req.body;
   const cliente = await ClientesModel.findOne({
     where: {
-      nombre,
-      primerApellido,
-      segundoApellido
+      telefono
     }, raw: true
   });
   if (cliente == null) {

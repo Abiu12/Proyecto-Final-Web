@@ -31,20 +31,20 @@
 						<%=cliente.primerApellido%>
 							<%=cliente.segundoApellido%>
 				</h2>
-				<% if(orden!=null){ %>
-					<h2><br>El trabajo es: <%= orden.trabajo%>
-					</h2>
-				<% } %>
 				<% if(orden==null){ %>
 					<h2><br>Sin trabajo registrado</h2>
 				<% } %>
+				<% if(orden!=null){ %>
+					
+					<h2><br>El trabajo es: <%= orden.trabajo%>
+					</h2>
 				<h2><br>El estado de su electrodoméstico en el taller es: <%=orden.estado %></h2>
 				<% if(orden.estado=="Terminado" ){ %>
 					<h2><br>El costo de la reparación fué: $<%= orden.precio%></h2>
 					<h2><br>¡Usted ya puede pasar al taller por su electrodoméstico!</h2>
 				<%} else{ %>
 					<h2 id="fechaExpirada"></h2>
-					<h2 id="observacion"><%=orden.observaciones%> </h2>
+					<h2 id="observacion">Observaciones: <%=orden.observaciones%> </h2>
 					<h2>La fecha estimada de terminación del trabajo es:</h2>
 					<h2 id="fecha"><%=orden.fecha_salida%></h2>
 					<script>
@@ -62,9 +62,10 @@
 						document.getElementById('fecha').innerText = fecha_convertida;
 						resultado = ahora.diff(fecha, 'days');
 						if (resultado > 0) {
-							document.getElementById('fechaExpirada').innerText = "Lo sentimos, su reparacion se ha retrasado!!! Debido a que: ";
+							document.getElementById('fechaExpirada').innerText = "Lo sentimos, su reparacion se ha retrasado!!!";
 						}
 						</script>
+				<% } %>
 				<% } %>
 			</div>
 		</form>
